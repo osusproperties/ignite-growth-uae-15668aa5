@@ -6,16 +6,17 @@ import logoVideo from "@/assets/sgc-logo-video.mp4";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      {/* Background Video with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <video 
+          autoPlay 
+          loop 
+          muted={false}
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={logoVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background"></div>
       </div>
 
@@ -25,19 +26,6 @@ const Hero = () => {
       {/* Content */}
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          {/* Logo Video */}
-          <div className="flex justify-center mb-8 animate-fade-in">
-            <video 
-              autoPlay 
-              loop 
-              muted={false}
-              playsInline
-              className="w-64 h-64 md:w-80 md:h-80 object-contain"
-            >
-              <source src={logoVideo} type="video/mp4" />
-            </video>
-          </div>
-
           {/* Launch Partner Badge */}
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass border border-accent/50 text-sm font-semibold text-accent animate-fade-in stagger-1">
             <Zap size={16} className="animate-glow" />
