@@ -32,21 +32,31 @@ const Hero = () => {
             <span>Launch Partner Program: <span className="text-gold">8 of 50 spots remaining</span></span>
           </div>
 
+          {/* Coming Soon Digital Animation */}
+          <div className="relative inline-block animate-fade-in stagger-2">
+            <div className="font-display font-black text-4xl md:text-5xl lg:text-6xl tracking-wider text-accent animate-pulse">
+              <span className="relative inline-block">
+                <span className="absolute inset-0 blur-lg opacity-75 bg-accent animate-pulse"></span>
+                <span className="relative digital-text glow-cyan">COMING SOON</span>
+              </span>
+            </div>
+          </div>
+
           {/* Main Headline */}
-          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl leading-tight animate-fade-in stagger-2">
+          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl leading-tight animate-fade-in stagger-3">
             <span className="text-gradient block mb-4 animate-glow">Intelligent Infrastructure.</span>
-            <span className="text-foreground animate-fade-in stagger-3">Instant Impact.</span>
+            <span className="text-foreground animate-fade-in stagger-4">Instant Impact.</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-foreground-muted max-w-3xl mx-auto leading-relaxed animate-fade-in stagger-4">
+          <p className="text-xl md:text-2xl text-foreground-muted max-w-3xl mx-auto leading-relaxed animate-fade-in stagger-5">
             Transform your enterprise in <span className="text-accent font-bold animate-glow">14 days</span> with AI-native technology. 
             Guaranteed <span className="text-success font-bold animate-glow">150-200% ROI</span>. 
             No PowerPoint. No delays. Just production-ready intelligent systems.
           </p>
 
           {/* Value Props */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base animate-fade-in stagger-5">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base animate-fade-in stagger-6">
             <div className="flex items-center gap-2 text-foreground-muted">
               <Zap size={20} className="text-accent" />
               <span>14-Day Deployments</span>
@@ -62,7 +72,7 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-fade-in stagger-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-fade-in stagger-7">
             <Button variant="hero" size="xl" className="group" asChild>
               <a href="#book-consultation">
                 Book Free Consultation
@@ -77,7 +87,7 @@ const Hero = () => {
           </div>
 
           {/* Trust Indicators */}
-          <div className="pt-8 animate-fade-in stagger-7">
+          <div className="pt-8 animate-fade-in stagger-8">
             <p className="text-xs text-foreground-subtle mb-4 uppercase tracking-wider">
               Trusted by Enterprise Leaders in UAE
             </p>

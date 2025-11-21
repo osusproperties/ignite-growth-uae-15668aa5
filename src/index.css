@@ -310,7 +310,39 @@ defined here. Components use semantic tokens.
   /* Stagger Animation Delays */
   .stagger-1 { animation-delay: 0.1s; }
   .stagger-2 { animation-delay: 0.2s; }
-  .stagger-3 { animation-delay: 0.3s; }
-  .stagger-4 { animation-delay: 0.4s; }
-  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-3 { animation-delay: 0.4s; }
+  .stagger-4 { animation-delay: 0.6s; }
+  .stagger-5 { animation-delay: 0.8s; }
+  .stagger-6 { animation-delay: 1s; }
+  .stagger-7 { animation-delay: 1.2s; }
+  .stagger-8 { animation-delay: 1.4s; }
+  
+  /* Digital Text Effect */
+  .digital-text {
+    font-family: 'Orbitron', var(--font-display);
+    letter-spacing: 0.2em;
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor,
+      0 0 40px hsl(var(--accent));
+    animation: digital-flicker 2s infinite alternate;
+  }
+  
+  @keyframes digital-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      opacity: 1;
+      text-shadow: 
+        0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor,
+        0 0 40px hsl(var(--accent));
+    }
+    20%, 24%, 55% {
+      opacity: 0.8;
+      text-shadow: 
+        0 0 5px currentColor,
+        0 0 10px currentColor;
+    }
+  }
 }
