@@ -2,95 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 
+==============================================
+SGC TECH AI / SCHOLARIX GLOBAL DESIGN SYSTEM
+==============================================
+All colors, typography, spacing, and effects
+defined here. Components use semantic tokens.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
+    /* Core Brand Colors - Scholarix Global (Professional) */
+    --deep-navy: 210 60% 12%;
+    --ocean-blue: 221 83% 26%;
+    --sky-blue: 199 89% 63%;
+    --ice-white: 200 67% 96%;
+    
+    /* SGC TECH AI Accent Colors (Cyberpunk Edge) */
+    --electric-cyan: 180 100% 50%;
+    --neon-green: 150 100% 50%;
+    --carbon-black: 0 0% 4%;
+    
+    /* Semantic UI Colors */
+    --gold: 45 100% 50%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+    --error: 0 84% 60%;
+    
+    /* Background System */
+    --background: var(--deep-navy);
+    --background-secondary: var(--ocean-blue);
+    --background-elevated: 217 32% 17%;
+    --background-glass: 210 60% 12% / 0.7;
+    
+    /* Foreground System */
+    --foreground: var(--ice-white);
+    --foreground-muted: 200 20% 75%;
+    --foreground-subtle: 200 15% 60%;
+    
+    /* Brand System */
+    --primary: var(--sky-blue);
+    --primary-foreground: 222 47% 11%;
+    --primary-glow: var(--electric-cyan);
+    
+    --secondary: var(--ocean-blue);
+    --secondary-foreground: var(--ice-white);
+    
+    --accent: var(--electric-cyan);
+    --accent-foreground: var(--carbon-black);
+    --accent-secondary: var(--neon-green);
+    
+    /* UI Components */
+    --card: 217 32% 17%;
+    --card-foreground: var(--ice-white);
+    --card-hover: 217 32% 22%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: var(--ice-white);
+    
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    --border: 217 32% 25%;
+    --border-accent: var(--primary);
+    --input: 217 32% 17%;
+    --ring: var(--primary);
+    
+    --destructive: var(--error);
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--ocean-blue)) 0%, hsl(var(--deep-navy)) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--electric-cyan)) 0%, hsl(var(--sky-blue)) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(var(--carbon-black)) 0%, hsl(var(--deep-navy)) 50%, hsl(var(--ocean-blue)) 100%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(var(--electric-cyan) / 0.2) 0%, transparent 70%);
+    
+    /* Shadows & Glows */
+    --shadow-sm: 0 1px 2px hsl(var(--carbon-black) / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(var(--carbon-black) / 0.4);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--carbon-black) / 0.5);
+    --shadow-xl: 0 20px 25px -5px hsl(var(--carbon-black) / 0.6);
+    --shadow-glow: 0 0 30px hsl(var(--electric-cyan) / 0.4);
+    --shadow-glow-green: 0 0 30px hsl(var(--neon-green) / 0.4);
+    
+    /* Spacing Scale */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
+    
+    /* Border Radius */
+    --radius-none: 0;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius: var(--radius-sm);
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Z-Index Scale */
+    --z-base: 1;
+    --z-dropdown: 1000;
+    --z-sticky: 1100;
+    --z-fixed: 1200;
+    --z-modal: 1300;
+    --z-popover: 1400;
+    --z-tooltip: 1500;
   }
-
+  
+  /* Dark mode already default, but keeping structure for extensibility */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: var(--deep-navy);
+    --foreground: var(--ice-white);
   }
 }
 
@@ -98,8 +130,187 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
+  
+  html {
+    @apply scroll-smooth;
+  }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl leading-tight;
+  }
+  
+  h2 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h4 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h5 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  h6 {
+    @apply text-lg md:text-xl;
+  }
+}
+
+@layer components {
+  /* Grid Pattern Background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
+  }
+  
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--sky-blue)), hsl(var(--electric-cyan)));
+  }
+  
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gold)), hsl(45 100% 60%));
+  }
+  
+  /* Glow Effects */
+  .glow-cyan {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-green {
+    box-shadow: var(--shadow-glow-green);
+  }
+  
+  /* Glass Morphism */
+  .glass {
+    background: hsl(var(--background-glass));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+  }
+  
+  /* Hover Lift Effect */
+  .hover-lift {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* Underline Animation */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute w-full h-0.5 bottom-0 left-0 origin-bottom-right;
+    background: hsl(var(--primary));
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+  }
+  
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom-left;
+  }
+  
+  /* Tech Lines Decoration */
+  .tech-lines {
+    position: relative;
+  }
+  
+  .tech-lines::before,
+  .tech-lines::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--electric-cyan)), transparent);
+  }
+  
+  .tech-lines::before {
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .tech-lines::after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Pulse Animation for CTAs */
+  .pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--electric-cyan) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--electric-cyan) / 0.6);
+    }
+  }
+  
+  /* Counter Animation */
+  @keyframes counter-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-counter {
+    animation: counter-up 0.6s ease-out;
+  }
+  
+  /* Fade In Scroll Animations */
+  .fade-in-up {
+    opacity: 0;
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Stagger Animation Delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
 }
