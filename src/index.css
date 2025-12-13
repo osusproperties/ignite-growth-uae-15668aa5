@@ -345,4 +345,32 @@ defined here. Components use semantic tokens.
         0 0 10px currentColor;
     }
   }
+  
+  /* Typewriter Effect */
+  .typewriter-line {
+    opacity: 0;
+    animation: typewriter-appear 0.5s ease-out forwards, typewriter-cursor 1s step-end;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  @keyframes typewriter-appear {
+    0% {
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  
+  /* Gold Glow Effect */
+  .glow-gold {
+    text-shadow: 
+      0 0 10px hsl(var(--gold)),
+      0 0 20px hsl(var(--gold)),
+      0 0 30px hsl(var(--gold) / 0.7),
+      0 0 40px hsl(var(--gold) / 0.5);
+  }
 }
