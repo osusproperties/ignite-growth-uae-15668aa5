@@ -22,10 +22,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img src={sgcLogo} alt="SGC TECH AI Logo" className="h-10 w-10 transition-transform group-hover:scale-110" />
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-xl text-gradient leading-none">SGC TECH AI</span>
-              <span className="text-xs text-foreground-subtle font-body">by Scholarix Global</span>
-            </div>
+            <span className="font-display font-bold text-xl text-gradient whitespace-nowrap">SGC TECH AI</span>
           </Link>
 
           {/* Desktop Navigation */}
