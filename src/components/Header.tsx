@@ -8,11 +8,11 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Solutions", href: "#solutions" },
-    { name: "Industries", href: "#industries" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "About", href: "#about" },
-    { name: "Resources", href: "#resources" },
+    { name: "Solutions", href: "/solutions" },
+    { name: "Industries", href: "/industries" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "About", href: "/about" },
+    { name: "Resources", href: "/resources" },
   ];
 
   return (
@@ -31,13 +31,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-foreground-muted hover:text-foreground transition-colors font-medium link-underline"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -65,14 +65,14 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 space-y-4 animate-fade-in">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="block py-2 text-foreground-muted hover:text-foreground transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             <div className="pt-4 space-y-2 border-t border-border">
               <Button variant="outline" size="default" className="w-full" asChild>
