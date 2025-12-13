@@ -26,20 +26,6 @@ const Hero = () => {
       {/* Content */}
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          {/* Launch Partner Badge */}
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass border border-accent/50 text-sm font-semibold text-accent animate-fade-in stagger-1">
-            <Zap size={16} className="animate-glow" />
-            <span>Launch Partner Program: <span className="text-gold">8 of 50 spots remaining</span></span>
-          </div>
-
-          {/* Launch Partner Program Badge */}
-          <div className="relative inline-block animate-fade-in stagger-2">
-            <div className="font-display font-black text-2xl md:text-3xl lg:text-4xl tracking-wider text-gold">
-              <span className="relative inline-block digital-text glow-gold">
-                LAUNCH PARTNER PROGRAM
-              </span>
-            </div>
-          </div>
 
           {/* Main Headline with Typewriter Effect */}
           <div className="space-y-4 animate-fade-in stagger-3">
