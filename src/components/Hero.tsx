@@ -1,9 +1,36 @@
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, TrendingUp, Shield } from "lucide-react";
+import { ArrowRight, Zap, TrendingUp, Shield, Volume2, VolumeX } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import logoVideo from "@/assets/sgc-logo-video.mp4";
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Try unmuted autoplay; if blocked, keep sound preference and let user tap mute/unmute button
+    video.muted = false;
+    video.volume = 0.7;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((err) => {
+        console.warn("Autoplay with sound was blocked:", err);
+      });
+    }
+  }, []);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Video with Overlay */}
@@ -11,7 +38,7 @@ const Hero = () => {
         <video
           autoPlay
           loop
-          muted
+          ref={videoRef}
           playsInline
           preload="auto"
           poster={heroBg}
@@ -21,6 +48,19 @@ const Hero = () => {
           <source src={logoVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background"></div>
+        
+        {/* Mute/Unmute Button */}
+        <button
+          onClick={toggleMute}
+          className="absolute top-6 right-6 z-20 p-3 glass rounded-full hover-lift interactive-button group"
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+        >
+          {isMuted ? (
+            <VolumeX className="w-5 h-5 text-foreground-muted group-hover:text-accent transition-colors" />
+          ) : (
+            <Volume2 className="w-5 h-5 text-accent group-hover:text-accent-secondary transition-colors" />
+          )}
+        </button>
       </div>
 
       {/* Animated Grid Pattern Overlay */}
@@ -63,13 +103,13 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-fade-in stagger-7">
-            <Button variant="hero" size="xl" className="group" asChild>
+            <Button variant="hero" size="xl" className="group interactive-button" asChild>
               <a href="#book-consultation">
                 Book Free Consultation
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button variant="outline" size="xl" asChild>
+            <Button variant="outline" size="xl" className="interactive-button" asChild>
               <a href="#how-it-works">
                 See How It Works
               </a>

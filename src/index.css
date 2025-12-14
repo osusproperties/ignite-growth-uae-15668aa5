@@ -138,6 +138,12 @@ defined here. Components use semantic tokens.
   body {
     @apply bg-background text-foreground font-body antialiased;
     font-feature-settings: "kern" 1, "liga" 1;
+    background-image:
+      radial-gradient(circle at 20% 20%, hsl(var(--electric-cyan) / 0.08) 0, transparent 30%),
+      radial-gradient(circle at 80% 10%, hsl(var(--neon-green) / 0.08) 0, transparent 28%),
+      radial-gradient(circle at 50% 80%, hsl(var(--gold) / 0.10) 0, transparent 32%),
+      linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--background-secondary)) 100%);
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -215,6 +221,40 @@ defined here. Components use semantic tokens.
   .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-xl);
+  }
+
+  /* Interactive Hover Variants */
+  .hover-tilt {
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+
+  .hover-tilt:hover {
+    transform: translateY(-6px) scale(1.01) rotateX(1deg) rotateY(-1deg);
+    box-shadow: var(--shadow-glow);
+    border-color: hsl(var(--accent));
+  }
+
+  .interactive-card {
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    border-color: hsl(var(--accent));
+  }
+
+  .interactive-button {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  }
+
+  .interactive-button:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .interactive-button:active {
+    transform: translateY(0) scale(0.99);
   }
   
   /* Underline Animation */
@@ -372,5 +412,59 @@ defined here. Components use semantic tokens.
       0 0 20px hsl(var(--gold)),
       0 0 30px hsl(var(--gold) / 0.7),
       0 0 40px hsl(var(--gold) / 0.5);
+  }
+
+  /* Loading and Skeleton Utilities */
+  .loading-dots {
+    display: inline-flex;
+    gap: 6px;
+  }
+
+  .loading-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: hsl(var(--accent));
+    animation: loading-bounce 1s infinite ease-in-out;
+  }
+
+  .loading-dots span:nth-child(2) { animation-delay: 0.15s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+  @keyframes loading-bounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: hsl(var(--muted));
+  }
+
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, hsl(var(--foreground-muted) / 0.2), transparent);
+    animation: shimmer 1.4s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid hsl(var(--foreground-subtle));
+    border-top-color: hsl(var(--accent));
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
   }
 }

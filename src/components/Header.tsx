@@ -27,6 +27,12 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
+            <Link
+              to="/"
+              className="text-foreground hover:text-accent transition-colors font-semibold link-underline"
+            >
+              Home
+            </Link>
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -61,6 +67,13 @@ const Header = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 space-y-4 animate-fade-in">
+            <Link
+              to="/"
+              className="block py-2 text-foreground hover:text-accent transition-colors font-semibold"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
             {navigation.map((item) => (
               <Link
                 key={item.name}

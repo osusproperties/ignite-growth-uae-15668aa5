@@ -59,17 +59,36 @@ const ROICalculator = () => {
     setStatus("loading");
     
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      
-      console.log("ROI Form submitted:", data);
-      setStatus("success");
-      toast.success("Your ROI report has been sent to your email!");
-      
-      setTimeout(() => {
-        reset();
-        setStatus("idle");
-      }, 3000);
+      const formData = new FormData();
+      formData.append("access_key", "60d099bd-01f2-43df-8c03-514bc2331804");
+      formData.append("name", data.fullName);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone);
+      formData.append("company", data.companyName);
+      formData.append("employees", data.employeeCount);
+      formData.append("industry", data.industry);
+      formData.append("revenue", data.monthlyRevenue);
+      formData.append("current_system", data.currentSystem || "Not specified");
+      formData.append("subject", "New ROI Calculator Submission - SGC TECH AI");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        toast.success("Your ROI report has been sent to your email!");
+        
+        setTimeout(() => {
+          reset();
+          setStatus("idle");
+        }, 3000);
+      } else {
+        throw new Error("Submission failed");
+      }
     } catch {
       setStatus("error");
       toast.error("Something went wrong. Please try again.");
@@ -146,7 +165,7 @@ const ROICalculator = () => {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+971 50 123 4567"
+                    placeholder="+971 50 967 5518"
                     {...register("phone")}
                     className={errors.phone ? "border-destructive" : ""}
                   />

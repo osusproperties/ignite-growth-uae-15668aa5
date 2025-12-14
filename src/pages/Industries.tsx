@@ -98,7 +98,7 @@ const Industries = () => {
             {industries.map((industry, index) => (
               <div
                 key={industry.title}
-                className="glass rounded-xl p-xl hover-lift transition-all duration-300 animate-fade-in group"
+                className="glass rounded-xl p-xl interactive-card animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="w-14 h-14 rounded-lg bg-primary/20 flex items-center justify-center mb-lg group-hover:bg-accent/20 transition-colors">
@@ -134,7 +134,7 @@ const Industries = () => {
             {caseStudies.map((study, index) => (
               <div
                 key={study.company}
-                className="glass rounded-xl p-xl animate-fade-in"
+                className="glass rounded-xl p-xl interactive-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="text-xs text-accent font-semibold uppercase tracking-wider mb-sm">
@@ -158,7 +158,7 @@ const Industries = () => {
             <p className="text-lg text-foreground-muted max-w-xl mx-auto mb-xl">
               We work with businesses across all sectors. Let's discuss how we can help you.
             </p>
-            <Button variant="hero" size="lg" className="pulse-glow" asChild>
+            <Button variant="hero" size="lg" className="pulse-glow interactive-button" asChild>
               <Link to="/#contact">Contact Us</Link>
             </Button>
           </div>

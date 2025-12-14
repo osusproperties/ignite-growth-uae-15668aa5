@@ -6,6 +6,7 @@ import ROICalculator from "@/components/ROICalculator";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
+import PartnerCarousel from "@/components/PartnerCarousel";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <PartnerCarousel />
         <ValueProposition />
         <Industries />
         <ROICalculator />

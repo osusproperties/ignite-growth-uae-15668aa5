@@ -48,17 +48,32 @@ const ContactForm = () => {
     setStatus("loading");
     
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      console.log("Contact Form submitted:", data);
-      setStatus("success");
-      toast.success("Message sent! We'll get back to you within 24 hours.");
-      
-      setTimeout(() => {
-        reset();
-        setStatus("idle");
-      }, 3000);
+      const formData = new FormData();
+      formData.append("access_key", "60d099bd-01f2-43df-8c03-514bc2331804");
+      formData.append("name", data.fullName);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone);
+      formData.append("message", data.message || "No message provided");
+      formData.append("subject", "New Contact Form Submission - SGC TECH AI");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        toast.success("Message sent! We'll get back to you within 24 hours.");
+        
+        setTimeout(() => {
+          reset();
+          setStatus("idle");
+        }, 3000);
+      } else {
+        throw new Error("Submission failed");
+      }
     } catch {
       setStatus("error");
       toast.error("Something went wrong. Please try again.");
@@ -138,7 +153,7 @@ const ContactForm = () => {
                 <Input
                   id="contact-phone"
                   type="tel"
-                  placeholder="+971 50 123 4567"
+                  placeholder="+971 50 967 5518"
                   {...register("phone")}
                   className={errors.phone ? "border-destructive" : ""}
                   aria-describedby={errors.phone ? "phone-error" : undefined}

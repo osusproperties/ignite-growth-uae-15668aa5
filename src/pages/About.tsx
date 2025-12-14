@@ -120,7 +120,7 @@ const About = () => {
                 across the UAE and the wider MENA region.
               </p>
             </div>
-            <div className="glass rounded-2xl p-xl animate-fade-in stagger-2">
+            <div className="glass rounded-2xl p-xl interactive-card animate-fade-in stagger-2">
               <Award className="w-16 h-16 text-accent mb-lg" />
               <h3 className="text-2xl font-bold text-foreground mb-md">Industry Recognition</h3>
               <ul className="space-y-md text-foreground-muted">
@@ -144,7 +144,7 @@ const About = () => {
             {values.map((value, index) => (
               <div
                 key={value.title}
-                className="glass rounded-xl p-lg text-center hover-lift animate-fade-in"
+                className="glass rounded-xl p-lg text-center interactive-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-lg">
@@ -167,7 +167,7 @@ const About = () => {
             {team.map((member, index) => (
               <div
                 key={member.name}
-                className="glass rounded-xl p-lg text-center hover-lift animate-fade-in"
+                className="glass rounded-xl p-lg text-center interactive-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-lg flex items-center justify-center">
@@ -192,10 +192,10 @@ const About = () => {
               Whether you're looking for a technology partner or a career opportunity, we'd love to connect.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="pulse-glow" asChild>
+              <Button variant="hero" size="lg" className="pulse-glow interactive-button" asChild>
                 <Link to="/#contact">Become a Client</Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" className="interactive-button" asChild>
                 <Link to="/#contact">View Careers</Link>
               </Button>
             </div>

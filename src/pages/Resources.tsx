@@ -109,7 +109,7 @@ const Resources = () => {
         <section className="container mb-4xl">
           <div className="flex items-center justify-between mb-xl">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">Latest Articles</h2>
-            <Button variant="ghost" size="sm" className="text-accent">
+            <Button variant="ghost" size="sm" className="text-accent interactive-button">
               View All <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
@@ -117,7 +117,7 @@ const Resources = () => {
             {blogPosts.map((post, index) => (
               <article
                 key={post.title}
-                className="glass rounded-xl p-xl hover-lift cursor-pointer animate-fade-in group"
+                className="glass rounded-xl p-xl interactive-card cursor-pointer animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-center gap-md mb-md">
@@ -152,7 +152,7 @@ const Resources = () => {
             {resources.map((resource, index) => (
               <div
                 key={resource.title}
-                className="glass rounded-xl p-lg text-center hover-lift cursor-pointer animate-fade-in group"
+                className="glass rounded-xl p-lg text-center interactive-card cursor-pointer animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-lg group-hover:bg-accent/20 transition-colors">
@@ -163,7 +163,7 @@ const Resources = () => {
                 </span>
                 <h4 className="text-lg font-bold text-foreground mb-sm">{resource.title}</h4>
                 <p className="text-sm text-foreground-muted mb-lg">{resource.description}</p>
-                <Button variant="outline" size="sm" className="w-full">
+                <Button variant="outline" size="sm" className="w-full interactive-button">
                   <Download className="w-4 h-4 mr-2" />
                   Download
                 </Button>
@@ -182,7 +182,7 @@ const Resources = () => {
             {webinars.map((webinar, index) => (
               <div
                 key={webinar.title}
-                className="glass rounded-xl p-lg flex flex-col md:flex-row md:items-center justify-between gap-md animate-fade-in"
+                className="glass rounded-xl p-lg flex flex-col md:flex-row md:items-center justify-between gap-md interactive-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start gap-lg">
@@ -196,7 +196,7 @@ const Resources = () => {
                     </p>
                   </div>
                 </div>
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size="sm" className="interactive-button">
                   Register
                 </Button>
               </div>
@@ -214,7 +214,7 @@ const Resources = () => {
             <p className="text-lg text-foreground-muted max-w-xl mx-auto mb-xl">
               We can create tailored guides and assessments specific to your industry and needs.
             </p>
-            <Button variant="hero" size="lg" className="pulse-glow" asChild>
+            <Button variant="hero" size="lg" className="pulse-glow interactive-button" asChild>
               <Link to="/#contact">Request Custom Content</Link>
             </Button>
           </div>

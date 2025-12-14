@@ -121,7 +121,7 @@ const Pricing = () => {
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
-                className={`glass rounded-xl p-xl relative animate-fade-in ${
+                className={`glass rounded-xl p-xl relative animate-fade-in interactive-card ${
                   plan.popular ? "ring-2 ring-accent scale-105" : ""
                 }`}
                 style={{ animationDelay: `${index * 0.15}s` }}

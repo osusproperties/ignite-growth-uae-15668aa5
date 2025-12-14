@@ -55,11 +55,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-foreground-muted">
                 <Phone size={16} className="text-accent" />
-                <a href="tel:+971XXXXXXXXX" className="hover:text-accent transition-colors">+971 XX XXX XXXX</a>
+                <a href="tel:+971509675518" className="hover:text-accent transition-colors">+971 50 967 5518</a>
               </div>
               <div className="flex items-center gap-2 text-foreground-muted">
                 <Mail size={16} className="text-accent" />
-                <a href="mailto:contact@sgctech.ai" className="hover:text-accent transition-colors">contact@sgctech.ai</a>
+                <a href="mailto:info@sgctech.ai" className="hover:text-accent transition-colors">info@sgctech.ai</a>
               </div>
             </div>
           </div>

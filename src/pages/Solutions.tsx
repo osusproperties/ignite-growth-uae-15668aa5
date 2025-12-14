@@ -95,10 +95,10 @@ const Solutions = () => {
             that transform how businesses operate in the UAE and beyond.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in stagger-3">
-            <Button variant="hero" size="lg" className="pulse-glow" asChild>
+            <Button variant="hero" size="lg" className="pulse-glow interactive-button" asChild>
               <Link to="/#roi-calculator">Calculate Your ROI</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" className="interactive-button" asChild>
               <Link to="/#contact">Talk to an Expert</Link>
             </Button>
           </div>
@@ -110,7 +110,7 @@ const Solutions = () => {
             {solutions.map((solution, index) => (
               <div
                 key={solution.title}
-                className={`glass rounded-xl p-xl hover-lift transition-all duration-300 animate-fade-in ${
+                className={`glass rounded-xl p-xl interactive-card animate-fade-in ${
                   solution.highlight ? "ring-2 ring-accent/50" : ""
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -148,7 +148,7 @@ const Solutions = () => {
             <p className="text-lg text-foreground-muted max-w-xl mx-auto mb-xl">
               Get a free consultation and discover how our solutions can accelerate your growth.
             </p>
-            <Button variant="hero" size="lg" className="pulse-glow" asChild>
+            <Button variant="hero" size="lg" className="pulse-glow interactive-button" asChild>
               <Link to="/#contact">Book Free Consultation</Link>
             </Button>
           </div>
