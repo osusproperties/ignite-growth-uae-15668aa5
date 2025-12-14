@@ -8,11 +8,14 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          loop 
-          muted={false}
+        <video
+          autoPlay
+          loop
+          muted
           playsInline
+          preload="auto"
+          poster={heroBg}
+          aria-hidden
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={logoVideo} type="video/mp4" />
