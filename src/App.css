@@ -3,310 +3,236 @@
   min-height: 100vh;
 }
 
-/* ========== CUSTOM ANIMATIONS ========== */
+/* ========== DXB INTERACT STYLE ANIMATIONS ========== */
 
-@keyframes spin-reverse {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(59, 130, 246, 0.4);
-  }
-}
-
-@keyframes float-up {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-@keyframes slide-in-down {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes magnetic-cursor {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes border-glow {
-  0%, 100% {
-    border-color: rgba(6, 182, 212, 0.3);
-    box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.1), 0 0 20px rgba(6, 182, 212, 0.1);
-  }
-  50% {
-    border-color: rgba(6, 182, 212, 0.6);
-    box-shadow: inset 0 0 30px rgba(6, 182, 212, 0.2), 0 0 30px rgba(6, 182, 212, 0.3);
-  }
-}
-
-@keyframes text-glow {
-  0%, 100% {
-    text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(6, 182, 212, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
-  }
-}
-
-@keyframes rotate-border {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes scale-bounce {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-/* ========== UTILITY ANIMATION CLASSES ========== */
-
-.animate-spin-reverse {
-  animation: spin-reverse 3s linear infinite;
-}
-
-.animate-glow-pulse {
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-.animate-float {
-  animation: float-up 3s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0)
-  );
-  background-size: 1000px 100%;
-  animation: shimmer 2s infinite;
-}
-
-.animate-slide-down {
-  animation: slide-in-down 0.5s ease-out;
-}
-
-.animate-slide-up {
-  animation: slide-in-up 0.5s ease-out;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out;
-}
-
-.animate-text-glow {
-  animation: text-glow 2s ease-in-out infinite;
-}
-
-.animate-border-glow {
-  animation: border-glow 2s ease-in-out infinite;
-}
-
-.animate-scale-bounce {
-  animation: scale-bounce 1.5s ease-in-out infinite;
+/* Smooth global transitions */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* ========== HOVER ANIMATIONS ========== */
 
-/* Interactive buttons and links */
-button, a, [role="button"] {
+/* Interactive buttons - DXB style */
+button, [role="button"] {
   position: relative;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-button:hover, a:hover, [role="button"]:hover {
-  transform: translateY(-3px);
+button:hover, [role="button"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px hsl(var(--electric-cyan) / 0.25);
 }
 
-button:active, a:active, [role="button"]:active {
-  transform: translateY(-1px);
+button:active, [role="button"]:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px hsl(var(--electric-cyan) / 0.2);
 }
 
-/* Card hover effects */
+/* Link hover effects - DXB style underline */
+a {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+a:hover {
+  color: hsl(var(--electric-cyan));
+}
+
+/* Card hover effects - subtle lift with glow */
 .card, [class*="card"], .bg-card {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
 }
 
 .card:hover, [class*="card"]:hover, .bg-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15), 0 0 60px rgba(6, 182, 212, 0.1);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 20px 40px hsl(var(--electric-cyan) / 0.12),
+    0 0 0 1px hsl(var(--electric-cyan) / 0.1);
 }
 
+/* Card shimmer effect on hover */
 .card::before, [class*="card"]::before, .bg-card::before {
   content: "";
   position: absolute;
   top: 0;
   left: -100%;
-  width: 100%;
+  width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    hsl(var(--electric-cyan) / 0.08), 
+    transparent
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
 }
 
 .card:hover::before, [class*="card"]:hover::before, .bg-card:hover::before {
-  left: 100%;
+  left: 150%;
 }
 
-/* Text elements */
+/* Text elements hover */
 h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
 }
 
-h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
-  color: rgb(6, 182, 212);
-  text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+/* Form elements - DXB style focus */
+input, textarea, select {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-p, span, a {
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+input:focus, textarea:focus, select:focus {
+  border-color: hsl(var(--electric-cyan));
+  box-shadow: 
+    0 0 0 3px hsl(var(--electric-cyan) / 0.1),
+    0 0 20px hsl(var(--electric-cyan) / 0.1);
+  outline: none;
 }
 
-a {
+/* ========== CLICK/RIPPLE EFFECTS ========== */
+
+/* Ripple effect for buttons */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: hsl(var(--electric-cyan) / 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.ripple-effect:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+/* ========== GLOW EFFECTS ========== */
+
+/* Cyan glow on hover */
+.hover-glow:hover {
+  box-shadow: 
+    0 0 20px hsl(var(--electric-cyan) / 0.4),
+    0 0 40px hsl(var(--electric-cyan) / 0.2);
+}
+
+/* Border glow effect */
+.border-glow-hover:hover {
+  border-color: hsl(var(--electric-cyan));
+  box-shadow: 
+    0 0 0 1px hsl(var(--electric-cyan) / 0.5),
+    0 0 20px hsl(var(--electric-cyan) / 0.3);
+}
+
+/* ========== ICON ANIMATIONS ========== */
+
+/* Icon bounce on hover */
+.icon-bounce:hover svg,
+.icon-bounce:hover [class*="lucide"] {
+  animation: iconBounce 0.4s ease;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Icon scale on hover */
+.icon-scale:hover svg,
+.icon-scale:hover [class*="lucide"] {
+  transform: scale(1.15);
+  transition: transform 0.2s ease;
+}
+
+/* ========== NAV LINK EFFECTS ========== */
+
+/* Navigation link underline animation */
+.nav-link-effect {
   position: relative;
 }
 
-a::after {
+.nav-link-effect::after {
   content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, rgb(6, 182, 212), rgb(59, 130, 246));
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, hsl(var(--electric-cyan)), hsl(var(--sky-blue)));
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-a:hover::after {
+.nav-link-effect:hover::after {
   width: 100%;
 }
 
-a:hover {
-  color: rgb(6, 182, 212);
-  text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+/* ========== SCALE EFFECTS ========== */
+
+/* Subtle scale on hover */
+.hover-scale-sm:hover {
+  transform: scale(1.02);
 }
 
-/* Form elements */
-input, textarea, select {
-  transition: all 0.3s ease;
-  border-color: rgba(6, 182, 212, 0.3);
+.hover-scale-md:hover {
+  transform: scale(1.05);
 }
 
-input:focus, textarea:focus, select:focus {
-  border-color: rgb(6, 182, 212);
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1), inset 0 0 10px rgba(6, 182, 212, 0.05);
-  transform: scale(1.01);
+.hover-scale-lg:hover {
+  transform: scale(1.08);
 }
 
-input::placeholder, textarea::placeholder {
-  color: rgba(6, 182, 212, 0.4);
-  transition: color 0.3s ease;
-}
+/* ========== BACKGROUND EFFECTS ========== */
 
-input:focus::placeholder, textarea:focus::placeholder {
-  color: rgba(6, 182, 212, 0.6);
-}
-
-/* ========== POINTER/CURSOR EFFECTS ========== */
-
-* {
-  cursor: auto;
-}
-
-button, [role="button"], a, input[type="submit"] {
-  cursor: pointer;
+/* Background color transition */
+.bg-hover-fill {
   position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
-/* Pointer follow effect */
-body {
-  pointer-events: auto;
+.bg-hover-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: hsl(var(--electric-cyan) / 0.1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
 }
 
-/* Smooth scroll behavior */
+.bg-hover-fill:hover::before {
+  transform: scaleX(1);
+}
+
+/* ========== SMOOTH SCROLL ========== */
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Focus visible states for accessibility */
+/* ========== FOCUS STATES ========== */
+
 :focus-visible {
-  outline: 2px solid rgb(6, 182, 212);
+  outline: 2px solid hsl(var(--electric-cyan));
   outline-offset: 2px;
 }
 
-/* ========== LOADING SCREEN ANIMATIONS ========== */
-
-.loading-screen {
-  animation: fade-in 0.3s ease-out;
-}
-
-/* ========== RESPONSIVE ANIMATIONS ========== */
+/* ========== REDUCED MOTION ========== */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -317,53 +243,14 @@ html {
   }
 }
 
+/* ========== MOBILE OPTIMIZATIONS ========== */
+
 @media (max-width: 768px) {
-  button:hover, a:hover, [role="button"]:hover {
-    transform: scale(1.05);
+  button:hover, [role="button"]:hover {
+    transform: scale(1.02);
   }
 
   .card:hover, [class*="card"]:hover, .bg-card:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-3px) scale(1.01);
   }
 }
-
-/* ========== LEGACY ANIMATIONS ========== */
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-

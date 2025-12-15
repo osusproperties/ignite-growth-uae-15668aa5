@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
-const logoModules = import.meta.glob<{ default: string }>(
+const logoModules = import.meta.glob(
   "../../clients/*.{png,jpg,jpeg,svg,webp}",
   { eager: true, import: "default" },
-);
+) as Record<string, string>;
 
 const PartnerCarousel = () => {
   const autoplayPlugin = useRef(
