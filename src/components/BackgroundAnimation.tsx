@@ -16,16 +16,18 @@ const BackgroundAnimation = () => {
     const height = canvas.height;
     let time = 0;
 
-    // Brand colors for smoke effect
+    // Vibrant brand colors for intense smoke effect
     const smokeColors = [
-      { r: 0, g: 255, b: 240, a: 0.15 },    // electric-cyan
-      { r: 79, g: 195, b: 247, a: 0.12 },   // sky-blue
-      { r: 30, g: 58, b: 138, a: 0.1 },     // ocean-blue
-      { r: 0, g: 255, b: 136, a: 0.08 },    // neon-green accent
-      { r: 147, g: 51, b: 234, a: 0.06 },   // purple accent
+      { r: 0, g: 255, b: 240, a: 0.4 },     // electric-cyan - INTENSE
+      { r: 79, g: 195, b: 247, a: 0.35 },   // sky-blue
+      { r: 0, g: 255, b: 200, a: 0.3 },     // cyan-green
+      { r: 30, g: 120, b: 200, a: 0.25 },   // ocean-blue
+      { r: 0, g: 255, b: 136, a: 0.3 },     // neon-green
+      { r: 100, g: 200, b: 255, a: 0.25 },  // light-blue
+      { r: 147, g: 100, b: 255, a: 0.2 },   // purple accent
     ];
 
-    // Smoke particles with organic movement
+    // More smoke particles for denser effect
     interface SmokeParticle {
       x: number;
       y: number;
@@ -40,76 +42,76 @@ const BackgroundAnimation = () => {
     }
 
     const particles: SmokeParticle[] = [];
-    const particleCount = 15;
+    const particleCount = 25;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: 150 + Math.random() * 350,
+        radius: 200 + Math.random() * 400,
         color: smokeColors[i % smokeColors.length],
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.3,
+        speedX: (Math.random() - 0.5) * 0.4,
+        speedY: (Math.random() - 0.5) * 0.4,
         noiseOffsetX: Math.random() * 1000,
         noiseOffsetY: Math.random() * 1000,
         pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: 0.005 + Math.random() * 0.01,
+        pulseSpeed: 0.008 + Math.random() * 0.015,
       });
     }
 
-    // Simple noise function for organic movement
+    // Noise function for organic movement
     const noise = (x: number, y: number, t: number) => {
       return Math.sin(x * 0.01 + t) * Math.cos(y * 0.01 + t * 0.7) * 
              Math.sin((x + y) * 0.005 + t * 0.5);
     };
 
     const render = () => {
-      time += 0.008;
+      time += 0.01;
       
-      // Clear with dark background
-      ctx.fillStyle = "rgba(12, 30, 52, 0.15)";
+      // Slower fade for trails - creates more visible smoke
+      ctx.fillStyle = "rgba(12, 30, 52, 0.08)";
       ctx.fillRect(0, 0, width, height);
 
-      // Draw smoke particles
+      // Draw smoke particles with intense glow
       particles.forEach((particle) => {
-        // Organic noise-based movement
         const noiseX = noise(particle.noiseOffsetX, particle.noiseOffsetY, time);
         const noiseY = noise(particle.noiseOffsetY, particle.noiseOffsetX, time * 1.1);
         
-        particle.x += particle.speedX + noiseX * 2;
-        particle.y += particle.speedY + noiseY * 2;
+        particle.x += particle.speedX + noiseX * 3;
+        particle.y += particle.speedY + noiseY * 3;
 
-        // Mouse interaction - smoke flows away from cursor
+        // Mouse interaction
         const dx = mouseRef.current.x * width - particle.x;
         const dy = mouseRef.current.y * height - particle.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 400) {
-          const force = (400 - dist) / 400;
-          particle.x -= dx * force * 0.02;
-          particle.y -= dy * force * 0.02;
+        if (dist < 500) {
+          const force = (500 - dist) / 500;
+          particle.x -= dx * force * 0.03;
+          particle.y -= dy * force * 0.03;
         }
 
-        // Wrap around edges smoothly
+        // Wrap around edges
         if (particle.x < -particle.radius) particle.x = width + particle.radius;
         if (particle.x > width + particle.radius) particle.x = -particle.radius;
         if (particle.y < -particle.radius) particle.y = height + particle.radius;
         if (particle.y > height + particle.radius) particle.y = -particle.radius;
 
-        // Pulsing effect
+        // Stronger pulsing
         particle.pulse += particle.pulseSpeed;
-        const pulseScale = 1 + Math.sin(particle.pulse) * 0.2;
+        const pulseScale = 1 + Math.sin(particle.pulse) * 0.3;
         const currentRadius = particle.radius * pulseScale;
 
-        // Draw smoke blob with multiple gradient layers
+        // Draw intense smoke blob
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
           particle.x, particle.y, currentRadius
         );
         
         const { r, g, b, a } = particle.color;
-        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${a * 1.5})`);
-        gradient.addColorStop(0.3, `rgba(${r}, ${g}, ${b}, ${a})`);
-        gradient.addColorStop(0.6, `rgba(${r}, ${g}, ${b}, ${a * 0.5})`);
+        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${a * 2})`);
+        gradient.addColorStop(0.2, `rgba(${r}, ${g}, ${b}, ${a * 1.5})`);
+        gradient.addColorStop(0.4, `rgba(${r}, ${g}, ${b}, ${a})`);
+        gradient.addColorStop(0.7, `rgba(${r}, ${g}, ${b}, ${a * 0.4})`);
         gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
 
         ctx.globalCompositeOperation = "screen";
@@ -117,25 +119,59 @@ const BackgroundAnimation = () => {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, currentRadius, 0, Math.PI * 2);
         ctx.fill();
+
+        // Add inner glow core
+        const coreGradient = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, currentRadius * 0.3
+        );
+        coreGradient.addColorStop(0, `rgba(255, 255, 255, ${a * 0.5})`);
+        coreGradient.addColorStop(0.5, `rgba(${r}, ${g}, ${b}, ${a * 0.8})`);
+        coreGradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+        
+        ctx.fillStyle = coreGradient;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, currentRadius * 0.3, 0, Math.PI * 2);
+        ctx.fill();
       });
 
-      // Add flowing light streaks
+      // Intense flowing light streaks
       ctx.globalCompositeOperation = "screen";
-      for (let i = 0; i < 3; i++) {
-        const streakX = width * 0.5 + Math.sin(time * 0.5 + i * 2) * width * 0.4;
-        const streakY = height * 0.5 + Math.cos(time * 0.3 + i * 2.5) * height * 0.3;
+      for (let i = 0; i < 5; i++) {
+        const streakX = width * 0.5 + Math.sin(time * 0.4 + i * 1.5) * width * 0.5;
+        const streakY = height * 0.5 + Math.cos(time * 0.25 + i * 2) * height * 0.4;
         
         const streakGradient = ctx.createRadialGradient(
           streakX, streakY, 0,
-          streakX, streakY, 200
+          streakX, streakY, 300
         );
-        streakGradient.addColorStop(0, "rgba(0, 255, 240, 0.08)");
-        streakGradient.addColorStop(0.5, "rgba(79, 195, 247, 0.04)");
+        streakGradient.addColorStop(0, "rgba(0, 255, 240, 0.25)");
+        streakGradient.addColorStop(0.3, "rgba(79, 195, 247, 0.15)");
+        streakGradient.addColorStop(0.6, "rgba(0, 255, 200, 0.08)");
         streakGradient.addColorStop(1, "rgba(0, 255, 240, 0)");
         
         ctx.fillStyle = streakGradient;
         ctx.beginPath();
-        ctx.arc(streakX, streakY, 200, 0, Math.PI * 2);
+        ctx.arc(streakX, streakY, 300, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Add bright highlight spots
+      for (let i = 0; i < 3; i++) {
+        const spotX = width * (0.2 + i * 0.3) + Math.sin(time * 0.6 + i) * 100;
+        const spotY = height * 0.3 + Math.cos(time * 0.4 + i * 2) * 150;
+        
+        const spotGradient = ctx.createRadialGradient(
+          spotX, spotY, 0,
+          spotX, spotY, 150
+        );
+        spotGradient.addColorStop(0, "rgba(255, 255, 255, 0.15)");
+        spotGradient.addColorStop(0.3, "rgba(0, 255, 240, 0.2)");
+        spotGradient.addColorStop(1, "rgba(0, 255, 240, 0)");
+        
+        ctx.fillStyle = spotGradient;
+        ctx.beginPath();
+        ctx.arc(spotX, spotY, 150, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -163,7 +199,6 @@ const BackgroundAnimation = () => {
       };
     };
 
-    // Check reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     handleResize();
@@ -173,7 +208,6 @@ const BackgroundAnimation = () => {
     if (!prefersReducedMotion) {
       animate();
     } else {
-      // Static fallback
       const ctx = canvas.getContext("2d");
       if (ctx) {
         ctx.fillStyle = "rgb(12, 30, 52)";
