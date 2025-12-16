@@ -61,7 +61,7 @@ const team = [
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen relative">
       <BackgroundAnimation />
       <BackgroundPatterns pattern="geometric" opacity={0.1} position="top" className="left-0 z-0" />
       <Header />

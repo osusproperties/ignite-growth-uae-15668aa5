@@ -11,7 +11,7 @@ import PartnerCarousel from "@/components/PartnerCarousel";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen relative">
       <BackgroundAnimation />
       
       {/* Hero section pattern */}
