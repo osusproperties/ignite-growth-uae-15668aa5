@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import sgcLogo from "@/assets/sgc-logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navigation = [
     { name: "Solutions", href: "/solutions" },
@@ -14,6 +16,21 @@ const Header = () => {
     { name: "About", href: "/about" },
     { name: "Resources", href: "/resources" },
   ];
+
+  // Handle navigation to section (works cross-page)
+  const handleSectionNavigation = (sectionId: string) => {
+    setMobileMenuOpen(false);
+    if (location.pathname === "/") {
+      // Already on home page - scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // Navigate to home page with hash
+      navigate(`/#${sectionId}`);
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg">
@@ -46,11 +63,15 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" size="sm" asChild>
-              <a href="#contact">Contact</a>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => handleSectionNavigation("contact")}
+            >
+              Contact
             </Button>
             <Button variant="hero" size="default" className="pulse-glow" asChild>
-              <a href="/book-consultation">Book Free Consultation</a>
+              <Link to="/book-consultation">Book Free Consultation</Link>
             </Button>
           </div>
 
@@ -85,11 +106,18 @@ const Header = () => {
               </Link>
             ))}
             <div className="pt-4 space-y-2 border-t border-border">
-              <Button variant="outline" size="default" className="w-full" asChild>
-                <a href="#contact">Contact</a>
+              <Button
+                variant="outline"
+                size="default"
+                className="w-full"
+                onClick={() => handleSectionNavigation("contact")}
+              >
+                Contact
               </Button>
               <Button variant="hero" size="default" className="w-full" asChild>
-                <a href="/book-consultation">Book Free Consultation</a>
+                <Link to="/book-consultation" onClick={() => setMobileMenuOpen(false)}>
+                  Book Free Consultation
+                </Link>
               </Button>
             </div>
           </div>
