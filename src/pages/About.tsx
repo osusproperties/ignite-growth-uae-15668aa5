@@ -5,6 +5,7 @@ import BackgroundPatterns from "@/components/BackgroundPatterns";
 import { Button } from "@/components/ui/button";
 import { Target, Users, Award, Globe, Lightbulb, Heart, Rocket, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GoldGradientDef } from "@/components/GoldIcon";
 
 const stats = [
   { value: "500+", label: "Clients Served" },
@@ -62,14 +63,15 @@ const team = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <GoldGradientDef />
       <BackgroundAnimation />
       <BackgroundPatterns pattern="geometric" opacity={0.1} position="top" className="left-0 z-0" />
       <Header />
       <main className="pt-32 pb-4xl">
         {/* Hero Section */}
         <section className="container text-center mb-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-lg animate-fade-in">
-            <Target className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-lg animate-fade-in">
+            <Target className="w-4 h-4" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} />
             About Us
           </div>
           <h1 className="text-gradient mb-lg animate-fade-in stagger-1">
@@ -92,7 +94,7 @@ const About = () => {
                   className="text-center animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-gradient mb-sm">{stat.value}</div>
+                  <div className="text-4xl md:text-5xl font-bold text-gradient-gold mb-sm">{stat.value}</div>
                   <div className="text-foreground-muted">{stat.label}</div>
                 </div>
               ))}
@@ -104,8 +106,8 @@ const About = () => {
         <section className="container mb-4xl">
           <div className="grid md:grid-cols-2 gap-3xl items-center">
             <div className="animate-fade-in">
-              <div className="inline-flex items-center gap-2 text-accent text-sm font-semibold mb-md">
-                <Globe className="w-4 h-4" />
+              <div className="inline-flex items-center gap-2 text-gold text-sm font-semibold mb-md">
+                <Globe className="w-4 h-4" style={{ stroke: "url(#gold-gradient)" }} />
                 Our Mission
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-lg">
@@ -123,14 +125,24 @@ const About = () => {
               </p>
             </div>
             <div className="glass rounded-2xl p-xl interactive-card animate-fade-in stagger-2">
-              <Award className="w-16 h-16 text-accent mb-lg" />
+              <Award className="w-16 h-16 mb-lg" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.5))" }} />
               <h3 className="text-2xl font-bold text-foreground mb-md">Industry Recognition</h3>
               <ul className="space-y-md text-foreground-muted">
-                <li>• UAE Digital Transformation Award 2024</li>
-                <li>• Microsoft Gold Partner</li>
-                <li>• SAP Certified Implementation Partner</li>
-                <li>• ISO 27001 Certified</li>
-                <li>• Top 10 Tech Companies in MENA - Forbes</li>
+                <li className="flex items-center gap-2">
+                  <span className="text-gold">•</span> UAE Digital Transformation Award 2024
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-gold">•</span> Microsoft Gold Partner
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-gold">•</span> SAP Certified Implementation Partner
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-gold">•</span> ISO 27001 Certified
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-gold">•</span> Top 10 Tech Companies in MENA - Forbes
+                </li>
               </ul>
             </div>
           </div>
@@ -149,8 +161,8 @@ const About = () => {
                 className="glass rounded-xl p-lg text-center interactive-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-lg">
-                  <value.icon className="w-7 h-7 text-accent" />
+                <div className="w-14 h-14 rounded-full icon-gold-bg icon-gold-glow flex items-center justify-center mx-auto mb-lg">
+                  <value.icon className="w-7 h-7" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} />
                 </div>
                 <h4 className="text-lg font-bold text-foreground mb-sm">{value.title}</h4>
                 <p className="text-sm text-foreground-muted">{value.description}</p>
@@ -160,7 +172,7 @@ const About = () => {
         </section>
 
         {/* Team Section */}
-        <section className="container mb-4xl">
+        <section id="team" className="container mb-4xl">
           <div className="text-center mb-3xl">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-md">Leadership Team</h2>
             <p className="text-foreground-muted">The experts driving our vision forward</p>
@@ -172,11 +184,11 @@ const About = () => {
                 className="glass rounded-xl p-lg text-center interactive-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-lg flex items-center justify-center">
-                  <Users className="w-10 h-10 text-primary-foreground" />
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-yellow-600 mx-auto mb-lg flex items-center justify-center shadow-lg">
+                  <Users className="w-10 h-10 text-black" />
                 </div>
                 <h4 className="text-lg font-bold text-foreground">{member.name}</h4>
-                <p className="text-sm text-accent mb-md">{member.role}</p>
+                <p className="text-sm text-gold mb-md">{member.role}</p>
                 <p className="text-sm text-foreground-muted">{member.bio}</p>
               </div>
             ))}
@@ -186,7 +198,7 @@ const About = () => {
         {/* CTA Section */}
         <section className="container">
           <div className="glass rounded-2xl p-3xl text-center tech-lines">
-            <Users className="w-12 h-12 text-accent mx-auto mb-lg" />
+            <Users className="w-12 h-12 mx-auto mb-lg" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.5))" }} />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-lg">
               Join Our Growing Family
             </h2>
@@ -197,7 +209,7 @@ const About = () => {
               <Button variant="hero" size="lg" className="pulse-glow interactive-button" asChild>
                 <Link to="/#contact">Become a Client</Link>
               </Button>
-              <Button variant="outline" size="lg" className="interactive-button" asChild>
+              <Button variant="outline" size="lg" className="interactive-button border-gold/30 hover:bg-gold/10 hover:text-gold" asChild>
                 <Link to="/#contact">View Careers</Link>
               </Button>
             </div>

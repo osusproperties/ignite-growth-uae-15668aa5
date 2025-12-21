@@ -5,6 +5,7 @@ import BackgroundPatterns from "@/components/BackgroundPatterns";
 import { Button } from "@/components/ui/button";
 import { Building2, Home, ShoppingCart, Factory, Briefcase, Package, TrendingUp, Users, Quote, CheckCircle, ArrowRight, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GoldGradientDef } from "@/components/GoldIcon";
 
 const industries = [
   {
@@ -122,6 +123,7 @@ const clientLogos = [
 const Industries = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <GoldGradientDef />
       <BackgroundAnimation />
       <BackgroundPatterns pattern="circuit" opacity={0.1} position="top" className="left-0 z-0" />
       <Header />
