@@ -5,6 +5,7 @@ import BackgroundPatterns from "@/components/BackgroundPatterns";
 import { Button } from "@/components/ui/button";
 import { Check, Zap, Shield, TrendingUp, Clock, Users, Database, Bot } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GoldGradientDef } from "@/components/GoldIcon";
 
 const solutions = [
   {
@@ -79,14 +80,15 @@ const solutions = [
 const Solutions = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <GoldGradientDef />
       <BackgroundAnimation />
       <BackgroundPatterns pattern="hexagon" opacity={0.12} position="top" className="left-0 z-0" />
       <Header />
       <main className="pt-32 pb-4xl">
         {/* Hero Section */}
         <section className="container text-center mb-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-lg animate-fade-in">
-            <Zap className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-lg animate-fade-in">
+            <Zap className="w-4 h-4" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} />
             Enterprise Solutions
           </div>
           <h1 className="text-gradient mb-lg animate-fade-in stagger-1">
@@ -100,7 +102,7 @@ const Solutions = () => {
             <Button variant="hero" size="lg" className="pulse-glow interactive-button" asChild>
               <Link to="/#roi-calculator">Calculate Your ROI</Link>
             </Button>
-            <Button variant="outline" size="lg" className="interactive-button" asChild>
+            <Button variant="outline" size="lg" className="interactive-button border-gold/30 hover:bg-gold/10 hover:text-gold" asChild>
               <Link to="/#contact">Talk to an Expert</Link>
             </Button>
           </div>
@@ -113,24 +115,27 @@ const Solutions = () => {
               <div
                 key={solution.title}
                 className={`glass rounded-xl p-xl interactive-card animate-fade-in ${
-                  solution.highlight ? "ring-2 ring-accent/50" : ""
+                  solution.highlight ? "ring-2 ring-gold/50" : ""
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {solution.highlight && (
-                  <div className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold mb-md">
+                  <div className="inline-block px-3 py-1 rounded-full bg-gold/20 text-gold text-xs font-semibold mb-md">
                     Most Popular
                   </div>
                 )}
-                <div className="w-14 h-14 rounded-lg bg-primary/20 flex items-center justify-center mb-lg">
-                  <solution.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 rounded-lg icon-gold-bg icon-gold-glow flex items-center justify-center mb-lg">
+                  <solution.icon 
+                    className="w-7 h-7" 
+                    style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} 
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-md">{solution.title}</h3>
                 <p className="text-foreground-muted mb-lg">{solution.description}</p>
                 <ul className="space-y-sm">
                   {solution.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-sm text-sm text-foreground-muted">
-                      <Check className="w-4 h-4 text-success flex-shrink-0" />
+                      <Check className="w-4 h-4 flex-shrink-0" style={{ stroke: "url(#gold-gradient)" }} />
                       {feature}
                     </li>
                   ))}
@@ -143,7 +148,7 @@ const Solutions = () => {
         {/* CTA Section */}
         <section className="container mt-4xl">
           <div className="glass rounded-2xl p-3xl text-center tech-lines">
-            <Clock className="w-12 h-12 text-accent mx-auto mb-lg" />
+            <Clock className="w-12 h-12 mx-auto mb-lg" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.5))" }} />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-lg">
               Ready to Transform Your Business?
             </h2>

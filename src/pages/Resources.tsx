@@ -5,6 +5,7 @@ import BackgroundPatterns from "@/components/BackgroundPatterns";
 import { Button } from "@/components/ui/button";
 import { BookOpen, FileText, Video, Download, Calendar, ArrowRight, Clock, Tag, Users, BarChart3, Shield, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GoldGradientDef } from "@/components/GoldIcon";
 
 const blogPosts = [
   {
@@ -115,14 +116,6 @@ const webinars = [
     speaker: "James Mitchell, PropTech Consultant",
     attendees: 187,
   },
-  {
-    title: "Manufacturing 4.0: IoT Sensors, Predictive Maintenance & ERP",
-    date: "Feb 5, 2025",
-    time: "10:00 AM GST",
-    status: "upcoming",
-    speaker: "Elena Rodriguez, Industrial IoT Specialist",
-    attendees: 156,
-  },
 ];
 
 const caseStudyHighlights = [
@@ -149,14 +142,15 @@ const caseStudyHighlights = [
 const Resources = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <GoldGradientDef />
       <BackgroundAnimation />
       <BackgroundPatterns pattern="hexagon" opacity={0.12} position="top" className="left-0 z-0" />
       <Header />
       <main className="pt-32 pb-4xl">
         {/* Hero Section */}
         <section className="container text-center mb-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-lg animate-fade-in">
-            <BookOpen className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-lg animate-fade-in">
+            <BookOpen className="w-4 h-4" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} />
             Resource Library
           </div>
           <h1 className="text-gradient mb-lg animate-fade-in stagger-1">
@@ -177,11 +171,11 @@ const Resources = () => {
                 className="glass rounded-xl p-xl text-center animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-xs text-accent font-semibold uppercase tracking-wider mb-sm">
+                <div className="text-xs text-gold font-semibold uppercase tracking-wider mb-sm">
                   {item.industry}
                 </div>
                 <h4 className="text-lg font-bold text-foreground mb-sm">{item.title}</h4>
-                <div className="text-4xl font-bold text-gradient mb-sm">{item.metric}</div>
+                <div className="text-4xl font-bold text-gradient-gold mb-sm">{item.metric}</div>
                 <p className="text-foreground-muted text-sm">{item.description}</p>
               </div>
             ))}
@@ -195,27 +189,28 @@ const Resources = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground">Latest Insights</h2>
               <p className="text-foreground-muted mt-sm">Research, analysis, and best practices from our team</p>
             </div>
-            <Button variant="ghost" size="sm" className="text-accent interactive-button hidden md:flex">
+            <Button variant="ghost" size="sm" className="text-gold interactive-button hidden md:flex">
               View All Articles <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-xl">
             {blogPosts.map((post, index) => (
-              <article
+              <Link
+                to={`/article/${post.slug}`}
                 key={post.title}
-                className="glass rounded-xl p-xl interactive-card cursor-pointer animate-fade-in group"
+                className="glass rounded-xl p-xl interactive-card cursor-pointer animate-fade-in group block"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-center gap-md mb-md flex-wrap">
-                  <span className="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-gold/20 text-gold text-xs font-semibold">
                     {post.category}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-foreground-subtle">
-                    <Clock className="w-3 h-3" />
+                    <Clock className="w-3 h-3" style={{ stroke: "url(#gold-gradient)" }} />
                     {post.readTime}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-sm group-hover:text-primary transition-colors line-clamp-2">
+                <h3 className="text-lg font-bold text-foreground mb-sm group-hover:text-gold transition-colors line-clamp-2">
                   {post.title}
                 </h3>
                 <p className="text-foreground-muted text-sm mb-md line-clamp-3">{post.excerpt}</p>
@@ -225,9 +220,9 @@ const Resources = () => {
                     <span className="mx-2">•</span>
                     {post.date}
                   </div>
-                  <ArrowRight className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ArrowRight className="w-4 h-4 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
           <div className="mt-xl text-center md:hidden">
@@ -243,31 +238,41 @@ const Resources = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-md">Free Downloads</h2>
             <p className="text-foreground-muted">Proven templates and frameworks used by 500+ businesses</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-xl">
+          <div className="grid md:grid-cols-3 gap-xl">
             {resources.map((resource, index) => (
               <div
                 key={resource.title}
-                className="glass rounded-xl p-lg interactive-card cursor-pointer animate-fade-in group"
+                className="glass rounded-xl p-lg interactive-card animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start gap-lg">
-                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <resource.icon className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
+                  <div className="w-12 h-12 rounded-lg icon-gold-bg icon-gold-glow flex items-center justify-center flex-shrink-0">
+                    <resource.icon 
+                      className="w-6 h-6" 
+                      style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} 
+                    />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-sm">
-                      <span className="px-2 py-0.5 rounded bg-muted text-foreground-muted text-xs">
+                      <span className="px-2 py-0.5 rounded bg-gold/20 text-gold text-xs font-semibold">
                         {resource.type}
                       </span>
                       <span className="text-xs text-foreground-subtle">{resource.pages}</span>
                     </div>
-                    <h4 className="text-base font-bold text-foreground mb-sm group-hover:text-primary transition-colors">
+                    <h4 className="text-base font-bold text-foreground mb-sm group-hover:text-gold transition-colors">
                       {resource.title}
                     </h4>
                     <p className="text-sm text-foreground-muted mb-md">{resource.description}</p>
-                    <Button variant="outline" size="sm" className="w-full interactive-button">
-                      <Download className="w-4 h-4 mr-2" />
-                      Download Free
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full interactive-button border-gold/30 hover:bg-gold/10 hover:text-gold" 
+                      asChild
+                    >
+                      <a href={resource.downloadUrl} target="_blank" rel="noopener noreferrer">
+                        <Download className="w-4 h-4 mr-2" style={{ stroke: "url(#gold-gradient)" }} />
+                        Download Free
+                      </a>
                     </Button>
                   </div>
                 </div>
@@ -290,8 +295,8 @@ const Resources = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start gap-lg">
-                  <div className="w-14 h-14 rounded-lg bg-accent/20 flex flex-col items-center justify-center flex-shrink-0">
-                    <Calendar className="w-5 h-5 text-accent" />
+                  <div className="w-14 h-14 rounded-lg icon-gold-bg icon-gold-glow flex flex-col items-center justify-center flex-shrink-0">
+                    <Calendar className="w-5 h-5" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} />
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground mb-xs">{webinar.title}</h4>
@@ -301,14 +306,21 @@ const Resources = () => {
                     <div className="flex items-center gap-md text-xs text-foreground-subtle">
                       <span>{webinar.date} • {webinar.time}</span>
                       <span className="flex items-center gap-1">
-                        <Users className="w-3 h-3" />
+                        <Users className="w-3 h-3" style={{ stroke: "url(#gold-gradient)" }} />
                         {webinar.attendees} registered
                       </span>
                     </div>
                   </div>
                 </div>
-                <Button variant="outline" size="sm" className="interactive-button flex-shrink-0">
-                  Register Free
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="interactive-button flex-shrink-0 border-gold/30 hover:bg-gold/10 hover:text-gold"
+                  asChild
+                >
+                  <Link to="/book-consultation">
+                    Register Free
+                  </Link>
                 </Button>
               </div>
             ))}
@@ -318,7 +330,7 @@ const Resources = () => {
         {/* CTA Section */}
         <section className="container">
           <div className="glass rounded-2xl p-3xl text-center tech-lines">
-            <Tag className="w-12 h-12 text-accent mx-auto mb-lg" />
+            <Tag className="w-12 h-12 mx-auto mb-lg" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.5))" }} />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-lg">
               Need Industry-Specific Research?
             </h2>
@@ -330,7 +342,7 @@ const Resources = () => {
               <Button variant="hero" size="lg" className="pulse-glow interactive-button" asChild>
                 <Link to="/book-consultation">Request Custom Research</Link>
               </Button>
-              <Button variant="outline" size="lg" className="interactive-button" asChild>
+              <Button variant="outline" size="lg" className="interactive-button border-gold/30 hover:bg-gold/10 hover:text-gold" asChild>
                 <Link to="/#contact">Contact Our Team</Link>
               </Button>
             </div>

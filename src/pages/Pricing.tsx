@@ -5,6 +5,7 @@ import BackgroundPatterns from "@/components/BackgroundPatterns";
 import { Button } from "@/components/ui/button";
 import { Check, X, Zap, Star, Phone, Info } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GoldGradientDef } from "@/components/GoldIcon";
 
 const plans = [
   {
@@ -99,14 +100,15 @@ const faqs = [
 const Pricing = () => {
   return (
     <div className="min-h-screen bg-background relative">
+      <GoldGradientDef />
       <BackgroundAnimation />
       <BackgroundPatterns pattern="hexagon" opacity={0.15} position="full" className="left-0 z-0" />
       <Header />
       <main className="pt-32 pb-4xl">
         {/* Hero Section */}
         <section className="container text-center mb-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-lg animate-fade-in">
-            <Zap className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/10 text-gold text-sm font-medium mb-lg animate-fade-in">
+            <Zap className="w-4 h-4" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} />
             Year-end implementation sale – 50% off annual!
           </div>
           <h1 className="text-gradient mb-lg animate-fade-in stagger-1">
@@ -124,20 +126,20 @@ const Pricing = () => {
               <div
                 key={plan.name}
                 className={`glass rounded-xl p-xl relative animate-fade-in interactive-card ${
-                  plan.popular ? "ring-2 ring-accent scale-105" : ""
+                  plan.popular ? "ring-2 ring-gold scale-105" : ""
                 }`}
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="flex items-center justify-between mb-sm">
                   <span className="text-sm uppercase tracking-wide text-foreground-subtle">{plan.tier} package</span>
                   {plan.popular && (
-                    <div className="flex items-center gap-1 text-xs font-semibold text-accent">
-                      <Star className="w-4 h-4" fill="currentColor" /> Best Value
+                    <div className="flex items-center gap-1 text-xs font-semibold text-gold">
+                      <Star className="w-4 h-4" fill="currentColor" style={{ stroke: "url(#gold-gradient)" }} /> Best Value
                     </div>
                   )}
                 </div>
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-accent-foreground text-sm font-semibold flex items-center gap-1">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 text-black text-sm font-semibold flex items-center gap-1 shadow-lg">
                     <Star className="w-4 h-4" fill="currentColor" />
                     Most Popular
                   </div>
@@ -147,15 +149,15 @@ const Pricing = () => {
                   <p className="text-sm text-foreground-muted mb-sm">{plan.description}</p>
                   <div className="flex items-center justify-center gap-3 text-foreground-subtle text-sm">
                     <span className="line-through">{plan.originalPrice}</span>
-                    <span className="text-success font-semibold">{plan.savings}</span>
+                    <span className="text-gold font-semibold">{plan.savings}</span>
                   </div>
                   <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                    <span className="text-4xl font-bold text-gradient-gold">{plan.price}</span>
                     <span className="text-foreground-muted text-sm">paid annually</span>
                   </div>
                   <div className="text-xs text-foreground-muted">{plan.setupFee}</div>
-                  <div className="flex items-center justify-center gap-2 text-xs text-foreground-subtle bg-muted/40 rounded-full px-3 py-1 w-fit mx-auto">
-                    <Info className="w-4 h-4" />
+                  <div className="flex items-center justify-center gap-2 text-xs text-foreground-subtle bg-gold/10 rounded-full px-3 py-1 w-fit mx-auto">
+                    <Info className="w-4 h-4" style={{ stroke: "url(#gold-gradient)" }} />
                     <span>{plan.usersIncluded}</span>
                   </div>
                   <div className="text-xs text-foreground-subtle bg-muted/30 rounded-md px-3 py-2 w-fit mx-auto">
@@ -166,7 +168,7 @@ const Pricing = () => {
                   {plan.features.map((feature) => (
                     <li key={feature.text} className="flex items-center gap-sm">
                       {feature.included ? (
-                        <Check className="w-5 h-5 text-success flex-shrink-0" />
+                        <Check className="w-5 h-5 flex-shrink-0" style={{ stroke: "url(#gold-gradient)" }} />
                       ) : (
                         <X className="w-5 h-5 text-foreground-subtle flex-shrink-0" />
                       )}
@@ -179,7 +181,7 @@ const Pricing = () => {
                 <Button
                   variant={plan.popular ? "hero" : "outline"}
                   size="lg"
-                  className={`w-full ${plan.popular ? "pulse-glow" : ""}`}
+                  className={`w-full ${plan.popular ? "pulse-glow" : "border-gold/30 hover:bg-gold/10 hover:text-gold"}`}
                   asChild
                 >
                   <Link to="/#contact">{plan.cta}</Link>
@@ -213,7 +215,7 @@ const Pricing = () => {
         {/* CTA Section */}
         <section className="container">
           <div className="glass rounded-2xl p-3xl text-center tech-lines">
-            <Phone className="w-12 h-12 text-accent mx-auto mb-lg" />
+            <Phone className="w-12 h-12 mx-auto mb-lg" style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.5))" }} />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-lg">
               Need a Custom Solution?
             </h2>
