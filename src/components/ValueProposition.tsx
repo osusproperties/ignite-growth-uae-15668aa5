@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { NavigationIcon, Lightbulb, Rocket, Clock, DollarSign, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -124,9 +125,9 @@ const ValueProposition = () => {
         {/* CTA */}
         <div className="text-center mt-16">
           <Button variant="hero" size="lg" asChild>
-            <a href="#pricing">
+            <Link to="/pricing">
               View Launch Partner Pricing →
-            </a>
+            </Link>
           </Button>
         </div>
       </div>

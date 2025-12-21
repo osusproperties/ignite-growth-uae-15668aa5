@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, TrendingUp, Shield, Volume2, VolumeX } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -9,6 +10,8 @@ const Hero = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -68,6 +71,18 @@ const Hero = () => {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(!videoRef.current.muted);
+    }
+  };
+
+  // Handle navigation to section (works cross-page)
+  const handleSectionNavigation = (sectionId: string) => {
+    if (location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      navigate(`/#${sectionId}`);
     }
   };
 
@@ -155,16 +170,19 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-fade-in stagger-7">
-            <Button variant="hero" size="xl" className="group interactive-button" asChild>
-              <a href="#contact">
-                Book Free Consultation
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+            <Button
+              variant="hero"
+              size="xl"
+              className="group interactive-button"
+              onClick={() => handleSectionNavigation("contact")}
+            >
+              Book Free Consultation
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="outline" size="xl" className="interactive-button" asChild>
-              <a href="/resources">
+              <Link to="/resources">
                 See How It Works
-              </a>
+              </Link>
             </Button>
           </div>
 

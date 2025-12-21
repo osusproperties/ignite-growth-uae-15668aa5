@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import LoadingScreen from "@/components/LoadingScreen";
 import SmokeAurora from "@/components/SmokeAurora";
 import JotFormChatbot from "@/components/JotFormChatbot";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 import Industries from "./pages/Industries";
@@ -28,6 +29,7 @@ const App = () => (
       <WhatsAppButton />
       <JotFormChatbot />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/solutions" element={<Solutions />} />
