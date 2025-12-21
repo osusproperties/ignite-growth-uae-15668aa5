@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE VAT Compliance Audit Kit | SGC TECH AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8f9fa; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .header { background: linear-gradient(135deg, #072846 0%, #0a3d62 100%); color: white; padding: 60px 40px; text-align: center; margin-bottom: 40px; border-radius: 12px; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .section h2 { color: #072846; border-bottom: 3px solid #10d5bf; padding-bottom: 10px; margin-bottom: 20px; }
+        .section h3 { color: #0a3d62; margin: 20px 0 10px; }
+        .checklist { list-style: none; }
+        .checklist li { padding: 12px 0; padding-left: 35px; position: relative; border-bottom: 1px solid #eee; }
+        .checklist li:before { content: "☐"; position: absolute; left: 0; color: #10d5bf; font-size: 1.4em; }
+        .status-pass { color: #10b981; font-weight: bold; }
+        .status-fail { color: #ef4444; font-weight: bold; }
+        .status-na { color: #6b7280; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border: 1px solid #ddd; }
+        th { background: #072846; color: white; }
+        .highlight { background: #e8f7f5; padding: 20px; border-left: 4px solid #10d5bf; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .warning { background: #fef3cd; padding: 20px; border-left: 4px solid #f59e0b; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .danger { background: #fee2e2; padding: 20px; border-left: 4px solid #ef4444; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .score-box { background: linear-gradient(135deg, #072846 0%, #0a3d62 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 30px 0; }
+        .score-box .score { font-size: 4em; font-weight: bold; color: #10d5bf; }
+        .footer { text-align: center; padding: 40px; color: #666; }
+        .cta { background: linear-gradient(135deg, #10d5bf 0%, #0ea5e9 100%); color: white; padding: 30px; text-align: center; border-radius: 8px; margin-top: 30px; }
+        .cta a { color: white; text-decoration: none; font-weight: bold; }
+        @media print { .cta { display: none; } body { background: white; } .section { box-shadow: none; border: 1px solid #ddd; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>UAE VAT Compliance Audit Kit</h1>
+            <p>Self-Assessment Toolkit for FTA Audit Preparation</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">Based on Federal Tax Authority Requirements | SGC TECH AI</p>
+        </div>
+
+        <div class="section">
+            <h2>About This Toolkit</h2>
+            <p>This self-assessment kit helps UAE businesses evaluate their VAT compliance status and prepare for Federal Tax Authority (FTA) audits. Use this document to:</p>
+            <ul style="margin: 20px 0; padding-left: 20px;">
+                <li>Identify compliance gaps before an FTA audit</li>
+                <li>Ensure your ERP/accounting system is properly configured</li>
+                <li>Verify documentation requirements are met</li>
+                <li>Prepare corrective actions for identified issues</li>
+            </ul>
+            <div class="warning">
+                ⚠️ <strong>Disclaimer:</strong> This toolkit provides general guidance only. For specific compliance questions, consult with a registered tax agent.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section 1: VAT Registration Compliance</h2>
+            <ul class="checklist">
+                <li>VAT registration certificate displayed at business premises</li>
+                <li>TRN (Tax Registration Number) printed on all invoices</li>
+                <li>TRN format is correct (15 digits)</li>
+                <li>Business activity matches registration category</li>
+                <li>All branches/locations covered under registration</li>
+                <li>Registration details updated after any business changes</li>
+            </ul>
+            <div class="highlight">
+                <strong>Penalty Risk:</strong> Operating without valid registration: AED 20,000 + AED 10,000/month
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section 2: Tax Invoice Compliance</h2>
+            <h3>Full Tax Invoice Requirements (B2B over AED 10,000)</h3>
+            <ul class="checklist">
+                <li>Words "Tax Invoice" displayed on invoice</li>
+                <li>Unique sequential invoice number</li>
+                <li>Invoice date</li>
+                <li>Supplier name and TRN</li>
+                <li>Customer name and TRN (if registered)</li>
+                <li>Supplier address</li>
+                <li>Customer address</li>
+                <li>Description of goods/services</li>
+                <li>Quantity of goods (if applicable)</li>
+                <li>Unit price (excluding VAT)</li>
+                <li>Discount amount (if applicable)</li>
+                <li>VAT rate applied (5%, 0%, or exempt)</li>
+                <li>VAT amount in AED</li>
+                <li>Total amount payable in AED</li>
+            </ul>
+            
+            <h3>Simplified Tax Invoice (B2C or under AED 10,000)</h3>
+            <ul class="checklist">
+                <li>Words "Tax Invoice" displayed</li>
+                <li>Supplier name and TRN</li>
+                <li>Invoice date</li>
+                <li>Description of goods/services</li>
+                <li>Total amount inclusive of VAT</li>
+            </ul>
+            <div class="danger">
+                <strong>Common Errors Found in Audits:</strong>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li>Missing customer TRN on B2B invoices</li>
+                    <li>VAT amount not in AED</li>
+                    <li>Incorrect VAT rate applied</li>
+                    <li>Non-sequential invoice numbers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section 3: VAT Return Filing</h2>
+            <ul class="checklist">
+                <li>Returns filed before deadline (28th of following month)</li>
+                <li>All taxable supplies correctly reported</li>
+                <li>Zero-rated supplies properly classified</li>
+                <li>Exempt supplies correctly excluded from VAT calculation</li>
+                <li>Input tax only claimed on eligible expenses</li>
+                <li>Blocked input tax properly excluded (entertainment, vehicles)</li>
+                <li>Import VAT correctly reported (if applicable)</li>
+                <li>Reverse charge VAT applied where required</li>
+                <li>Adjustment for bad debts properly calculated</li>
+                <li>Payment made by deadline</li>
+            </ul>
+            <div class="highlight">
+                <strong>Filing Deadlines:</strong>
+                <table>
+                    <tr><th>Tax Period</th><th>Due Date</th></tr>
+                    <tr><td>Monthly</td><td>28th of following month</td></tr>
+                    <tr><td>Quarterly</td><td>28th of month following quarter end</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Section 4: Input Tax Recovery</h2>
+            <h3>Eligible for Full Recovery</h3>
+            <ul class="checklist">
+                <li>Purchases directly related to taxable supplies</li>
+                <li>Valid tax invoice retained</li>
+                <li>Claimed in correct tax period</li>
+            </ul>
+            
+            <h3>Blocked Input Tax (Cannot Recover)</h3>
+            <ul class="checklist">
+                <li>Entertainment expenses (unless for employees)</li>
+                <li>Motor vehicles (unless for resale or business use)</li>
+                <li>Personal expenses</li>
+                <li>Purchases for exempt supplies</li>
+            </ul>
+
+            <h3>Partial Recovery (Apportionment Required)</h3>
+            <ul class="checklist">
+                <li>Mixed-use expenses apportioned correctly</li>
+                <li>Apportionment method approved by FTA</li>
+                <li>Annual adjustment calculated if required</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Section 5: Record Keeping</h2>
+            <ul class="checklist">
+                <li>All records retained for minimum 5 years</li>
+                <li>Records stored in UAE or accessible electronically</li>
+                <li>Arabic records available or translatable on request</li>
+                <li>Sales invoices (copies)</li>
+                <li>Purchase invoices (originals)</li>
+                <li>Customs documentation</li>
+                <li>VAT return working papers</li>
+                <li>Bank statements</li>
+                <li>Contracts and agreements</li>
+                <li>Import/export documentation</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Section 6: System Configuration Audit</h2>
+            <ul class="checklist">
+                <li>ERP/accounting system is FTA-approved (if claiming)</li>
+                <li>VAT rates correctly configured (5%, 0%, exempt)</li>
+                <li>Tax codes assigned to all products/services</li>
+                <li>Invoice templates include all required fields</li>
+                <li>Automatic TRN validation enabled</li>
+                <li>VAT reports can be generated matching FTA format</li>
+                <li>Audit trail enabled for all transactions</li>
+                <li>User access controls configured</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Section 7: Common Audit Findings</h2>
+            <table>
+                <tr>
+                    <th>Finding</th>
+                    <th>Penalty</th>
+                    <th>Prevention</th>
+                </tr>
+                <tr>
+                    <td>Late filing</td>
+                    <td>AED 1,000 first time, AED 2,000 repeat</td>
+                    <td>Set calendar reminders 1 week before</td>
+                </tr>
+                <tr>
+                    <td>Late payment</td>
+                    <td>2-4% of unpaid tax</td>
+                    <td>Automate payment on filing</td>
+                </tr>
+                <tr>
+                    <td>Incorrect VAT rate</td>
+                    <td>50% of underpaid tax</td>
+                    <td>Regular tax code review</td>
+                </tr>
+                <tr>
+                    <td>Invalid input tax claim</td>
+                    <td>50% of incorrectly claimed amount</td>
+                    <td>Invoice validation before claiming</td>
+                </tr>
+                <tr>
+                    <td>Missing records</td>
+                    <td>AED 10,000-50,000</td>
+                    <td>Systematic document management</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="score-box">
+            <p>Your Compliance Score</p>
+            <p class="score">__/50</p>
+            <p style="margin-top: 10px;">40-50: Excellent | 30-39: Good | 20-29: Needs Attention | Below 20: Critical</p>
+        </div>
+
+        <div class="section">
+            <h2>Action Plan Template</h2>
+            <table>
+                <tr>
+                    <th>Gap Identified</th>
+                    <th>Priority</th>
+                    <th>Action Required</th>
+                    <th>Owner</th>
+                    <th>Due Date</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="cta">
+            <p>Need help achieving full VAT compliance?</p>
+            <a href="https://sgctech.ai/book-consultation">Book a Free Compliance Review →</a>
+            <p style="margin-top: 15px; font-size: 0.9em;">SGC TECH AI | info@sgctech.ai | +971 50 967 5518</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 SGC TECH AI. A division of Scholarix Global Consultants.</p>
+            <p>This toolkit is for guidance only. Consult a registered tax agent for specific advice.</p>
+        </div>
+    </div>
+</body>
+</html>

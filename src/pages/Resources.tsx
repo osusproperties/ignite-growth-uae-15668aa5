@@ -14,6 +14,7 @@ const blogPosts = [
     readTime: "7 min read",
     date: "Dec 15, 2024",
     author: "Mohammed Al Rashid",
+    slug: "ai-automation-data-entry-reduction",
   },
   {
     title: "The Complete Guide to VAT Phase 2 Compliance in Saudi Arabia",
@@ -22,6 +23,7 @@ const blogPosts = [
     readTime: "12 min read",
     date: "Dec 10, 2024",
     author: "Fatima Hassan",
+    slug: "vat-phase-2-compliance-guide",
   },
   {
     title: "Why Traditional ERP Implementations Fail: Lessons from 50+ Projects",
@@ -30,6 +32,7 @@ const blogPosts = [
     readTime: "9 min read",
     date: "Dec 5, 2024",
     author: "Raj Patel",
+    slug: "erp-implementation-failures",
   },
   {
     title: "Real Estate CRM Integration: Connecting Yardi, PropertyFinder, and Bayut",
@@ -38,6 +41,7 @@ const blogPosts = [
     readTime: "8 min read",
     date: "Nov 28, 2024",
     author: "Sarah Thompson",
+    slug: "real-estate-crm-integration",
   },
   {
     title: "Measuring Digital Transformation ROI: Beyond the Spreadsheet",
@@ -46,6 +50,7 @@ const blogPosts = [
     readTime: "6 min read",
     date: "Nov 20, 2024",
     author: "Ahmed Al Mansoori",
+    slug: "measuring-digital-transformation-roi",
   },
   {
     title: "From Legacy Systems to Cloud: A Manufacturing Company's 18-Month Journey",
@@ -54,6 +59,7 @@ const blogPosts = [
     readTime: "11 min read",
     date: "Nov 12, 2024",
     author: "Chen Wei",
+    slug: "legacy-to-cloud-manufacturing",
   },
 ];
 
@@ -64,13 +70,7 @@ const resources = [
     type: "eBook",
     pages: "47 pages",
     icon: BookOpen,
-  },
-  {
-    title: "Digital Transformation ROI Calculator",
-    description: "Interactive Excel template to calculate projected savings, payback period, and 5-year TCO for your automation initiatives.",
-    type: "Template",
-    pages: "Includes formulas",
-    icon: BarChart3,
+    downloadUrl: "/downloads/erp-buyers-guide-2025.html",
   },
   {
     title: "ERP Implementation Checklist",
@@ -78,6 +78,7 @@ const resources = [
     type: "Checklist",
     pages: "PDF + Excel",
     icon: FileText,
+    downloadUrl: "/downloads/erp-implementation-checklist.html",
   },
   {
     title: "UAE VAT Compliance Audit Kit",
@@ -85,20 +86,7 @@ const resources = [
     type: "Toolkit",
     pages: "15 templates",
     icon: Shield,
-  },
-  {
-    title: "API Integration Playbook",
-    description: "Technical documentation for connecting ERP systems with banking, e-commerce, logistics, and government portals in the UAE.",
-    type: "Technical Guide",
-    pages: "32 pages",
-    icon: Zap,
-  },
-  {
-    title: "Odoo vs SAP Business One Comparison",
-    description: "Side-by-side feature comparison for mid-market companies, including implementation timelines, licensing costs, and customization flexibility.",
-    type: "Comparison",
-    pages: "22 pages",
-    icon: Download,
+    downloadUrl: "/downloads/uae-vat-compliance-audit-kit.html",
   },
 ];
 
