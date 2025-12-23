@@ -1,44 +1,51 @@
 import { Link } from "react-router-dom";
-import { NavigationIcon, Lightbulb, Rocket, Clock, DollarSign, Shield } from "lucide-react";
+import { Clock, DollarSign, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PremiumIcon from "@/components/PremiumIcon";
+import iconNavigate from "@/icons/icons/14-target-precision.webp";
+import iconInnovate from "@/icons/icons/22-innovation-network.webp";
+import iconTransform from "@/icons/icons/10-rocket-launch.webp";
+import iconSpeed from "@/icons/icons/04-lightning-speed.webp";
+import iconROI from "@/icons/icons/17-financial-roi.webp";
+import iconSecurity from "@/icons/icons/05-security-shield-left.webp";
 
 const ValueProposition = () => {
   const values = [
     {
-      icon: NavigationIcon,
+      img: iconNavigate,
       title: "Navigate",
       description: "Strategic roadmaps built on deep industry expertise and AI-powered market intelligence.",
-      color: "text-primary",
     },
     {
-      icon: Lightbulb,
+      img: iconInnovate,
       title: "Innovate",
       description: "AI-native solutions engineered for production from day one. No prototypes. Real infrastructure.",
-      color: "text-accent",
     },
     {
-      icon: Rocket,
+      img: iconTransform,
       title: "Transform",
       description: "14-day deployments that deliver measurable ROI in first 30 days. Guaranteed results.",
-      color: "text-success",
     },
   ];
 
   const guarantees = [
     {
       icon: Clock,
+      img: iconSpeed,
       title: "14 Days to Production",
       stat: "200% Faster",
       description: "Industry standard: 6-12 months. SGC TECH AI: 14 days.",
     },
     {
       icon: DollarSign,
+      img: iconROI,
       title: "Guaranteed ROI",
       stat: "150-200%",
       description: "40-80 hours saved monthly. 90%+ error reduction.",
     },
     {
       icon: Shield,
+      img: iconSecurity,
       title: "Zero Risk",
       stat: "10x Results",
       description: "If we don't deliver, you don't pay. Simple.",
@@ -68,16 +75,13 @@ const ValueProposition = () => {
         {/* Value Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {values.map((value, index) => {
-            const Icon = value.icon;
             return (
               <div
                 key={value.title}
                 className="group bg-card p-8 rounded-sm border border-border hover:border-accent transition-all duration-300 hover-lift animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`w-14 h-14 rounded-sm ${value.color} bg-muted flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                  <Icon size={28} />
-                </div>
+                <PremiumIcon src={value.img} alt={value.title} className="mb-6" />
                 <h3 className="font-display font-bold text-2xl mb-4 text-foreground">
                   {value.title}
                 </h3>
@@ -97,16 +101,13 @@ const ValueProposition = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {guarantees.map((guarantee, index) => {
-              const Icon = guarantee.icon;
               return (
                 <div
                   key={guarantee.title}
                   className="bg-gradient-to-br from-card to-muted p-8 rounded-sm border border-border text-center hover-lift animate-fade-in"
                   style={{ animationDelay: `${index * 0.1 + 0.3}s` }}
                 >
-                  <div className="w-16 h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-6">
-                    <Icon size={32} className="text-accent" />
-                  </div>
+                  <PremiumIcon src={guarantee.img} alt={guarantee.title} size={64} imageSize={32} className="mx-auto mb-6" />
                   <h4 className="font-display font-bold text-xl mb-2 text-foreground">
                     {guarantee.title}
                   </h4>

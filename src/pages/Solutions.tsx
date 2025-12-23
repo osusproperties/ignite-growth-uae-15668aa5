@@ -4,6 +4,13 @@ import BackgroundAnimation from "@/components/BackgroundAnimation";
 import BackgroundPatterns from "@/components/BackgroundPatterns";
 import { Button } from "@/components/ui/button";
 import { Check, Zap, Shield, TrendingUp, Clock, Users, Database, Bot } from "lucide-react";
+import PremiumIcon from "@/components/PremiumIcon";
+import iconERP from "@/icons/icons/21-ai-brain.webp";
+import iconCloud from "@/icons/icons/02-cloud-integration.webp";
+import iconBI from "@/icons/icons/08-data-analytics.webp";
+import iconRPA from "@/icons/icons/04-lightning-speed.webp";
+import iconSecurity from "@/icons/icons/18-data-security.webp";
+import iconSupport from "@/icons/icons/20-support-24-7.webp";
 import { Link } from "react-router-dom";
 import { GoldGradientDef } from "@/components/GoldIcon";
 
@@ -12,6 +19,7 @@ const solutions = [
     title: "AI-Powered ERP Implementation",
     description: "Deploy enterprise-grade ERP systems in 14 days, not months. Our AI automates configuration, data migration, and user training.",
     icon: Bot,
+    img: iconERP,
     features: [
       "Automated system configuration",
       "Intelligent data migration",
@@ -24,6 +32,7 @@ const solutions = [
     title: "Cloud Infrastructure",
     description: "Scalable, secure cloud solutions that grow with your business. Zero downtime migrations and 24/7 monitoring.",
     icon: Database,
+    img: iconCloud,
     features: [
       "Multi-cloud architecture",
       "Auto-scaling resources",
@@ -35,6 +44,7 @@ const solutions = [
     title: "Business Intelligence",
     description: "Transform raw data into actionable insights. AI-powered analytics that predict trends and optimize operations.",
     icon: TrendingUp,
+    img: iconBI,
     features: [
       "Real-time dashboards",
       "Predictive analytics",
@@ -46,6 +56,7 @@ const solutions = [
     title: "Process Automation",
     description: "Eliminate manual tasks and reduce errors. Our RPA solutions automate repetitive processes across departments.",
     icon: Zap,
+    img: iconRPA,
     features: [
       "Workflow automation",
       "Document processing",
@@ -57,6 +68,7 @@ const solutions = [
     title: "Cybersecurity Solutions",
     description: "Enterprise-grade security for SMBs. Protect your data, comply with regulations, and prevent threats.",
     icon: Shield,
+    img: iconSecurity,
     features: [
       "Threat detection & response",
       "Compliance management",
@@ -68,6 +80,7 @@ const solutions = [
     title: "24/7 Support & Training",
     description: "Dedicated support team and comprehensive training programs to ensure your team maximizes system value.",
     icon: Users,
+    img: iconSupport,
     features: [
       "24/7 technical support",
       "On-site training",
@@ -124,12 +137,7 @@ const Solutions = () => {
                     Most Popular
                   </div>
                 )}
-                <div className="w-14 h-14 rounded-lg icon-gold-bg icon-gold-glow flex items-center justify-center mb-lg">
-                  <solution.icon 
-                    className="w-7 h-7" 
-                    style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} 
-                  />
-                </div>
+                <PremiumIcon src={solution.img} alt={solution.title} />
                 <h3 className="text-xl font-bold text-foreground mb-md">{solution.title}</h3>
                 <p className="text-foreground-muted mb-lg">{solution.description}</p>
                 <ul className="space-y-sm">
