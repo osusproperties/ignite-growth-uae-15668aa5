@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Loader2, CheckCircle, XCircle } from "lucide-react";
+import { Loader2, CheckCircle, XCircle, Download, TrendingUp, AlertTriangle, Clock, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 const roiSchema = z.object({
   fullName: z
@@ -37,9 +38,25 @@ const roiSchema = z.object({
   industry: z.string().min(1, "Please select your industry"),
   monthlyRevenue: z.string().min(1, "Please select revenue range"),
   currentSystem: z.string().optional(),
+  manualProcessHours: z.number().min(0, "Please enter valid hours"),
+  errorRate: z.number().min(0).max(100, "Please enter a percentage between 0-100"),
+  monthlyITCosts: z.number().min(0, "Please enter valid costs"),
 });
 
 type ROIFormData = z.infer<typeof roiSchema>;
+
+interface ROIResults {
+  totalSavings: number;
+  timeSaved: number;
+  errorReduction: number;
+  costSavings: number;
+  roi: number;
+  paybackPeriod: number;
+  score: number;
+  level: "low" | "medium" | "high" | "critical";
+  painPoints: string[];
+  recommendations: string[];
+}
 
 const ROICalculator = () => {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");

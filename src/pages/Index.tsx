@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ValueProposition from "@/components/ValueProposition";
 import Industries from "@/components/Industries";
-import ROICalculator from "@/components/ROICalculator";
+import ROICalculatorEnhanced from "@/components/ROICalculatorEnhanced";
 import FreeTrialWidget from "@/components/FreeTrialWidget";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
@@ -58,7 +58,7 @@ const Index = () => {
             position="center"
             className="left-0 z-0"
           />
-          <ROICalculator />
+          <ROICalculatorEnhanced />
         </div>
         
         {/* Free Trial Widget */}
