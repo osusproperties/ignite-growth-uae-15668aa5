@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
 import BackgroundPatterns from "@/components/BackgroundPatterns";
+import FreeTrialWidget from "@/components/FreeTrialWidget";
 import { Button } from "@/components/ui/button";
 import { Check, X, Zap, Star, Phone, Info } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -211,6 +212,9 @@ const Pricing = () => {
             ))}
           </div>
         </section>
+
+        {/* Free Trial Widget */}
+        <FreeTrialWidget />
 
         {/* CTA Section */}
         <section className="container">

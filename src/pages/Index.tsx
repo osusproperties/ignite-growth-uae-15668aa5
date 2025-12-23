@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ValueProposition from "@/components/ValueProposition";
 import Industries from "@/components/Industries";
 import ROICalculator from "@/components/ROICalculator";
+import FreeTrialWidget from "@/components/FreeTrialWidget";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
@@ -58,6 +59,17 @@ const Index = () => {
             className="left-0 z-0"
           />
           <ROICalculator />
+        </div>
+        
+        {/* Free Trial Widget */}
+        <div className="relative">
+          <BackgroundPatterns 
+            pattern="geometric" 
+            opacity={0.12} 
+            position="center"
+            className="left-0 z-0"
+          />
+          <FreeTrialWidget />
         </div>
         
         {/* Contact Form pattern */}
