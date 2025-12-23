@@ -81,23 +81,22 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-4xl relative">
-      <div className="container max-w-xl">
-        <div className="text-center mb-3xl">
-          <h2 className="text-gradient mb-lg">Get In Touch</h2>
-          <p className="text-foreground-muted text-lg">
-            Ready to transform your business? Let's talk.
-          </p>
-        </div>
+    <div id="contact" className="h-full flex flex-col">
+      <div className="text-center mb-8">
+        <h3 className="text-2xl font-display font-bold text-gradient mb-3">Book a Consultation</h3>
+        <p className="text-foreground-muted">
+          Ready to transform your business? Let's talk.
+        </p>
+      </div>
 
-        <div className="glass rounded-xl p-2xl">
-          {status === "success" ? (
-            <div className="text-center py-3xl animate-fade-in">
-              <CheckCircle className="w-16 h-16 text-success mx-auto mb-lg" />
-              <h3 className="text-2xl font-bold text-foreground mb-md">Message Sent!</h3>
-              <p className="text-foreground-muted">
-                We'll get back to you within 24 hours.
-              </p>
+      <div className="glass rounded-xl p-8 flex-1 flex flex-col">
+        {status === "success" ? (
+          <div className="text-center py-12 animate-fade-in flex-1 flex flex-col justify-center">
+            <CheckCircle className="w-16 h-16 text-success mx-auto mb-4" />
+            <h4 className="text-xl font-bold text-foreground mb-2">Message Sent!</h4>
+            <p className="text-foreground-muted">
+              We'll get back to you within 24 hours.
+            </p>
             </div>
           ) : status === "error" ? (
             <div className="text-center py-3xl animate-fade-in">
@@ -203,7 +202,6 @@ const ContactForm = () => {
           )}
         </div>
       </div>
-    </section>
   );
 };
 

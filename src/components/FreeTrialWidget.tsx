@@ -56,34 +56,33 @@ const FreeTrialWidget = () => {
   };
 
   return (
-    <section id="free-trial" className="py-24 relative">
-      <div className="container max-w-lg">
-        <div className="text-center mb-12">
-          <h2 className="text-gradient mb-4">◆ TRY ODOO FREE FOR 4 WEEKS ◆</h2>
-          <p className="text-lg text-foreground-muted">
-            Experience enterprise-grade Odoo ERP with AI automation. No credit card required. Full features unlocked.
-          </p>
-        </div>
+    <div id="free-trial" className="h-full flex flex-col">
+      <div className="text-center mb-8">
+        <h3 className="text-2xl font-display font-bold text-gradient mb-3">Try Odoo Free for 4 Weeks</h3>
+        <p className="text-foreground-muted">
+          Experience enterprise-grade Odoo ERP with AI automation. No credit card required.
+        </p>
+      </div>
 
-        <div className="glass rounded-2xl p-8 shadow-2xl border border-accent/30 relative overflow-hidden">
-          {/* Glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 pointer-events-none" />
+      <div className="glass rounded-xl p-8 shadow-2xl border border-accent/30 relative overflow-hidden flex-1 flex flex-col">
+        {/* Glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 pointer-events-none" />
           
-          <div className="relative z-10">
-            {/* Header */}
-            <div className="flex flex-col items-center gap-6 mb-8">
-              <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-accent/20 to-accent/30 flex items-center justify-center shadow-lg">
-                <img
-                  src={sgcLogo}
-                  alt="SGC TECH AI Logo"
-                  className="w-16 h-16 object-contain filter drop-shadow-lg"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="text-2xl font-display font-bold text-foreground mb-2">
-                  Try Managed ODOO Free
-                </h3>
-                <p className="text-foreground-muted">
+<div className="relative z-10 flex-1 flex flex-col">
+          {/* Header */}
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-accent/20 to-accent/30 flex items-center justify-center shadow-lg">
+              <img
+                src={sgcLogo}
+                alt="SGC TECH AI Logo"
+                className="w-14 h-14 object-contain filter drop-shadow-lg"
+              />
+            </div>
+            <div className="text-center">
+              <h4 className="text-xl font-display font-bold text-foreground mb-1">
+                Managed ODOO Platform
+              </h4>
+              <p className="text-sm text-accent font-semibold">
                   4 Weeks Free • No Credit Card
                 </p>
               </div>
@@ -199,7 +198,6 @@ const FreeTrialWidget = () => {
           </div>
         </div>
       </div>
-    </section>
   );
 };
 

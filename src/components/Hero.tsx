@@ -17,34 +17,37 @@ const Hero = () => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Set video attributes
+    // Set video attributes for autoplay with audio
     video.muted = false;
     video.volume = 0.7;
-    video.preload = "metadata";
+    video.preload = "auto";
 
     // Handle when metadata is loaded
     const handleLoadedMetadata = () => {
       setVideoReady(true);
-      // Attempt to play
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch((err) => {
-            console.warn("Autoplay was blocked:", err);
-            // Set muted and try again
-            video.muted = true;
-            video.play().catch((e) => console.warn("Play failed:", e));
-          });
-      }
+      // Delay autoplay by 0.5 seconds
+      setTimeout(() => {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true);
+              setIsMuted(false);
+            })
+            .catch((err) => {
+              console.warn("Autoplay with audio blocked:", err);
+              // Fallback: mute and autoplay
+              video.muted = true;
+              setIsMuted(true);
+              video.play().catch((e) => console.warn("Muted play failed:", e));
+            });
+        }
+      }, 500); // 0.5 second delay
     };
 
     // Handle when video can play through
     const handleCanPlayThrough = () => {
       setVideoReady(true);
-      setIsPlaying(true);
     };
 
     // Handle play/pause state
@@ -56,7 +59,7 @@ const Hero = () => {
     video.addEventListener("play", handlePlay);
     video.addEventListener("pause", handlePause);
 
-    // Try to load video
+    // Try to load video immediately
     video.load();
 
     return () => {

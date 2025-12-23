@@ -61,18 +61,7 @@ const Index = () => {
           <ROICalculatorEnhanced />
         </div>
         
-        {/* Free Trial Widget */}
-        <div className="relative">
-          <BackgroundPatterns 
-            pattern="geometric" 
-            opacity={0.12} 
-            position="center"
-            className="left-0 z-0"
-          />
-          <FreeTrialWidget />
-        </div>
-        
-        {/* Contact Form pattern */}
+        {/* Contact Form & Free Trial Widget - Side by Side */}
         <div className="relative">
           <BackgroundPatterns 
             pattern="hexagon" 
@@ -80,7 +69,28 @@ const Index = () => {
             position="full"
             className="left-0 z-0"
           />
-          <ContactForm />
+          <section className="py-24 relative">
+            <div className="container">
+              <div className="text-center mb-16">
+                <h2 className="text-gradient mb-4">Ready to Transform Your Business?</h2>
+                <p className="text-lg text-foreground-muted max-w-3xl mx-auto">
+                  Choose how you'd like to get started: Book a consultation or try our platform free for 4 weeks
+                </p>
+              </div>
+              
+              <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                {/* Contact Form */}
+                <div className="flex flex-col">
+                  <ContactForm />
+                </div>
+                
+                {/* Free Trial Widget */}
+                <div className="flex flex-col">
+                  <FreeTrialWidget />
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </main>
       <Footer />
