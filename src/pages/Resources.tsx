@@ -4,6 +4,10 @@ import BackgroundAnimation from "@/components/BackgroundAnimation";
 import BackgroundPatterns from "@/components/BackgroundPatterns";
 import { Button } from "@/components/ui/button";
 import { BookOpen, FileText, Video, Download, Calendar, ArrowRight, Clock, Tag, Users, BarChart3, Shield, Zap } from "lucide-react";
+import PremiumIcon from "@/components/PremiumIcon";
+import iconBuyersGuide from "@/icons/icons/24-visibility-scope.webp";
+import iconChecklist from "@/icons/icons/16-time-efficiency.webp";
+import iconVatAudit from "@/icons/icons/18-data-security.webp";
 import { Link } from "react-router-dom";
 import { GoldGradientDef } from "@/components/GoldIcon";
 
@@ -71,6 +75,7 @@ const resources = [
     type: "eBook",
     pages: "47 pages",
     icon: BookOpen,
+    img: iconBuyersGuide,
     downloadUrl: "/downloads/erp-buyers-guide-2025.html",
   },
   {
@@ -79,6 +84,7 @@ const resources = [
     type: "Checklist",
     pages: "PDF + Excel",
     icon: FileText,
+    img: iconChecklist,
     downloadUrl: "/downloads/erp-implementation-checklist.html",
   },
   {
@@ -87,6 +93,7 @@ const resources = [
     type: "Toolkit",
     pages: "15 templates",
     icon: Shield,
+    img: iconVatAudit,
     downloadUrl: "/downloads/uae-vat-compliance-audit-kit.html",
   },
 ];
@@ -246,12 +253,7 @@ const Resources = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start gap-lg">
-                  <div className="w-12 h-12 rounded-lg icon-gold-bg icon-gold-glow flex items-center justify-center flex-shrink-0">
-                    <resource.icon 
-                      className="w-6 h-6" 
-                      style={{ stroke: "url(#gold-gradient)", filter: "drop-shadow(0 0 4px rgba(255, 215, 0, 0.5))" }} 
-                    />
-                  </div>
+                  <PremiumIcon src={resource.img} alt={resource.title} size={48} imageSize={24} />
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-sm">
                       <span className="px-2 py-0.5 rounded bg-gold/20 text-gold text-xs font-semibold">
