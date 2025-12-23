@@ -11,6 +11,9 @@ import iconTrading from "@/icons/icons/19-global-network.webp";
 import iconManufacturing from "@/icons/icons/09-automation-gears.webp";
 import iconRetail from "@/icons/icons/13-mobile-responsive.webp";
 import iconProServices from "@/icons/icons/11-achievement-trophy.webp";
+import iconFNB from "@/icons/icons/23-smart-solutions.webp";
+import iconConsulting from "@/icons/icons/24-visibility-scope.webp";
+import iconLegal from "@/icons/icons/05-security-shield-left.webp";
 import { Link } from "react-router-dom";
 import { GoldGradientDef } from "@/components/GoldIcon";
 
@@ -68,6 +71,33 @@ const industries = [
     stats: "34% improved utilization",
     features: ["Project profitability tracking", "Timesheet & expense management", "Resource capacity planning", "Milestone-based invoicing", "Client collaboration portals"],
     clients: ["LMD Consulting", "AX Capital Advisory"],
+  },
+  {
+    title: "Food & Beverage",
+    description: "Menu engineering, recipe & BOM costing, supplier procurement automation, and multi-branch operations control.",
+    icon: ShoppingCart,
+    stats: "22% margin improvement",
+    features: ["Recipe & BOM costing", "Supplier procurement & approvals", "Waste tracking & yield analysis", "POS & delivery aggregator integration", "Kitchen production planning"],
+    clients: ["Fresh Market UAE"],
+    img: iconFNB,
+  },
+  {
+    title: "Consulting Firms",
+    description: "Project delivery management, timesheets & billing, proposal pipelines, and client collaboration portals.",
+    icon: Briefcase,
+    stats: "38% faster billing cycles",
+    features: ["Project profitability tracking", "Timesheets & expense approvals", "Milestone invoicing", "Resource capacity planning", "Client portals & e-sign"],
+    clients: ["AX Capital Advisory", "LMD Consulting"],
+    img: iconConsulting,
+  },
+  {
+    title: "Legal & Compliance",
+    description: "Case management, retainer billing, document lifecycle, and compliance audit workflows.",
+    icon: Shield,
+    stats: "60% faster case prep",
+    features: ["Matter & case management", "Retainer & hourly billing", "Document versioning & e-sign", "Compliance checklist automation", "Court schedule & reminders"],
+    clients: ["Private Chambers"],
+    img: iconLegal,
   },
 ];
 
@@ -140,31 +170,8 @@ const Industries = () => {
       <BackgroundAnimation />
       <BackgroundPatterns pattern="circuit" opacity={0.1} position="top" className="left-0 z-0" />
       <Header />
-      <main className="pt-32 pb-4xl">
-        {/* Hero Section */}
-        <section className="container text-center mb-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-medium mb-lg animate-fade-in">
-            <Building2 className="w-4 h-4" />
-            Industry Expertise
-          </div>
-          <h1 className="text-gradient mb-lg animate-fade-in stagger-1">
-            Proven Solutions Across<br />Key Sectors
-          </h1>
-          <p className="text-xl text-foreground-muted max-w-2xl mx-auto mb-xl animate-fade-in stagger-2">
-            100+ successful implementations across real estate, trading, manufacturing, 
-            and professional services in the UAE and GCC region.
-          </p>
-          <div className="flex flex-wrap justify-center gap-md animate-fade-in stagger-3">
-            {clientLogos.slice(0, 6).map((client) => (
-              <div
-                key={client.name}
-                className="px-4 py-2 rounded-full bg-muted/50 text-foreground-muted text-sm"
-              >
-                {client.name}
-              </div>
-            ))}
-          </div>
-        </section>
+      <main className="pt-24 pb-4xl">
+        {/* Hero banner removed as requested */}
 
         {/* Industries Grid */}
         <section className="container mb-4xl">
