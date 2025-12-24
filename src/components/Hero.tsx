@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, TrendingUp, Shield, Volume2, VolumeX } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.png";
 import logoVideo from "@/assets/sgc-logo-video.mp4";
 
 const Hero = () => {

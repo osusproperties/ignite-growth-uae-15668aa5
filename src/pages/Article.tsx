@@ -878,24 +878,45 @@ const Article = () => {
               prose-a:text-accent prose-a:no-underline hover:prose-a:underline
               prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
               prose-pre:bg-muted prose-pre:border prose-pre:border-border
-              prose-table:border-collapse
-              prose-th:bg-muted prose-th:px-4 prose-th:py-2 prose-th:text-left
-              prose-td:border prose-td:border-border prose-td:px-4 prose-td:py-2
               prose-ul:text-foreground-muted
               prose-ol:text-foreground-muted
               prose-li:marker:text-accent
             "
             dangerouslySetInnerHTML={{ 
-              __html: article.content
-                .replace(/^## /gm, '<h2>')
-                .replace(/^### /gm, '<h3>')
-                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-                .replace(/\n\n/g, '</p><p>')
-                .replace(/<h2>/g, '</p><h2>')
-                .replace(/<h3>/g, '</p><h3>')
-                .replace(/(<h[23]>)([^<]+)/g, '$1$2</h$1>')
-                .replace(/<\/h<h2>/g, '</h2>')
-                .replace(/<\/h<h3>/g, '</h3>')
+              __html: (() => {
+                // Convert markdown tables to HTML
+                const convertMarkdownTables = (content: string): string => {
+                  // Match markdown tables (| header | header |)
+                  const tableRegex = /\|(.+)\|\n\|[-:\s|]+\|\n((?:\|.+\|\n?)+)/gm;
+                  
+                  return content.replace(tableRegex, (match, headers, rows) => {
+                    // Parse headers
+                    const headerCells = headers.split('|').map((h: string) => h.trim()).filter(Boolean);
+                    const headerHtml = headerCells.map((h: string) => `<th class="bg-muted/50 backdrop-blur-sm px-4 py-3 text-left font-semibold text-foreground border border-border">${h}</th>`).join('');
+                    
+                    // Parse rows
+                    const rowLines = rows.trim().split('\n');
+                    const rowsHtml = rowLines.map((row: string) => {
+                      const cells = row.split('|').map((c: string) => c.trim()).filter(Boolean);
+                      const cellsHtml = cells.map((c: string) => `<td class="px-4 py-3 text-foreground-muted border border-border">${c}</td>`).join('');
+                      return `<tr class="hover:bg-muted/30 transition-colors">${cellsHtml}</tr>`;
+                    }).join('');
+                    
+                    return `<div class="overflow-x-auto my-8 rounded-lg border border-border"><table class="w-full border-collapse"><thead><tr class="bg-gradient-to-r from-primary/20 to-accent/20">${headerHtml}</tr></thead><tbody>${rowsHtml}</tbody></table></div>`;
+                  });
+                };
+
+                return convertMarkdownTables(article.content)
+                  .replace(/^## /gm, '<h2>')
+                  .replace(/^### /gm, '<h3>')
+                  .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+                  .replace(/\n\n/g, '</p><p>')
+                  .replace(/<h2>/g, '</p><h2>')
+                  .replace(/<h3>/g, '</p><h3>')
+                  .replace(/(<h[23]>)([^<]+)/g, '$1$2</h$1>')
+                  .replace(/<\/h<h2>/g, '</h2>')
+                  .replace(/<\/h<h3>/g, '</h3>');
+              })()
             }}
           />
 

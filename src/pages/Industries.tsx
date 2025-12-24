@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
 import BackgroundPatterns from "@/components/BackgroundPatterns";
 import { Button } from "@/components/ui/button";
-import { Building2, Home, ShoppingCart, Factory, Briefcase, Package, TrendingUp, Users, Quote, CheckCircle, ArrowRight, Award } from "lucide-react";
+import { Building2, Home, ShoppingCart, Factory, Briefcase, Package, TrendingUp, Users, Quote, CheckCircle, ArrowRight, Award, Shield } from "lucide-react";
 import PremiumIcon from "@/components/PremiumIcon";
 import iconRealEstate from "@/icons/icons/24-visibility-scope.webp";
 import iconPropertyMgmt from "@/icons/icons/15-partnership-handshake.webp";

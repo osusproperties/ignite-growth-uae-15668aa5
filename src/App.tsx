@@ -26,8 +26,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <GlobalBackground />
       <SmokeAurora />
-        <GlobalBackground />
       <LoadingScreen />
       <WhatsAppButton />
       <JotFormChatbot />

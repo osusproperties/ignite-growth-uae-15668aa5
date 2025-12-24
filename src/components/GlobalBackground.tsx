@@ -1,3 +1,5 @@
+import circuitTexture from "@/assets/pattern-hexagon-tech-dark.png";
+
 const GlobalBackground = () => {
   return (
     <>
@@ -5,7 +7,7 @@ const GlobalBackground = () => {
       <div 
         className="fixed inset-0 z-[-2] bg-background"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='1920' height='1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230a0e1a'/%3E%3Cstop offset='100%25' style='stop-color:%23050810'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23bg)'/%3E%3C/svg%3E")`,
+          backgroundImage: `linear-gradient(135deg, rgba(5,8,16,0.75) 0%, rgba(5,8,16,0.6) 40%, rgba(5,8,16,0.75) 100%), url(${circuitTexture})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
